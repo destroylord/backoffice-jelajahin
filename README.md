@@ -10,4 +10,4 @@
 6. Terakhir jalankan aplikasi ``php artisan serve``
 
 
-**NOTE:** Gunakan versi [php 8]: https://www.php.net/downloads "PHP 8"
+**NOTE:** Gunakan versi [PHP8](http://example.com/ "PHP8")
