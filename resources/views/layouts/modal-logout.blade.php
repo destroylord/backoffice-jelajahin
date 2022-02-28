@@ -13,7 +13,10 @@ aria-hidden="true">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-      <a href="login.html" class="btn btn-primary">Logout</a>
+      <a href="{{ route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn btn-primary">Logout</a>
+
+      <form action="{{ route('logout')}}" method="POST" id="logout-form">
+    @csrf</form>
     </div>
   </div>
 </div>
