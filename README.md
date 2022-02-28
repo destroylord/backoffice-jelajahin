@@ -1,6 +1,6 @@
 ### Jelajahin Backoffice
 
-#### Konfigurasi
+#### *Konfigurasi*
 
 1. Ambil source dengan open terminal seperti ini ``git clone git@github.com:destroylord/backoffice-jelajahin.git``
 2. Masih tetap diterminal, Sekarang install composer dengan mengetikkan ``composer install && composer update --ignore-platform-reqs``
