@@ -34,7 +34,7 @@
             </ol>
           </div>
           <!--Row-->
-
+          @yield('content')
           <!-- Modal Logout -->
           @include('layouts.modal-logout')
         </div>
