@@ -22,4 +22,9 @@ class CategoryEventController extends Controller
         ]);
         return back();
     }
+
+    public function show()
+    {
+        
+    }
 }
