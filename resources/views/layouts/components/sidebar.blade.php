@@ -24,8 +24,8 @@
       <div id="collapseRestaurant" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Restaurant</h6>
-          <a class="collapse-item" href="alerts.html">Add Restaurant</a>
-          <a class="collapse-item" href="buttons.html">List Restaurant</a>
+          <a class="collapse-item" href="{{route('restaurant.create')}}">Add Restaurant</a>
+          <a class="collapse-item" href="{{route('restaurant.index')}}">List Restaurant</a>
         </div>
       </div>
     </li>
