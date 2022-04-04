@@ -38,7 +38,7 @@
       <div id="collapseTour" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Tour</h6>
-          <a class="collapse-item" href="form_basics.html">Add Tour</a>
+          <a class="collapse-item" href="{{route('tour.index')}}">Add Tour</a>
           <a class="collapse-item" href="form_advanceds.html">List Tour</a>
         </div>
       </div>
@@ -68,6 +68,19 @@
             <h6 class="collapse-header">City</h6>
             <a class="collapse-item" href="simple-tables.html">Add City</a>
             <a class="collapse-item" href="datatables.html">List City</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategoryEvents" aria-expanded="true"
+          aria-controls="collapseCategoryEvents">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Category Event</span>
+        </a>
+        <div id="collapseCategoryEvents" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Category Events</h6>
+            <a class="collapse-item" href="{{route('categoryEvent.index')}}">Add Category Events</a>
           </div>
         </div>
       </li>
