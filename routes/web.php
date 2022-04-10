@@ -12,7 +12,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/category-events', [CategoryEventController::class, 'index'])->name('categoryEvent.index');
     Route::post('/category-events', [CategoryEventController::class, 'create'])->name('categoryEvent.create');
     Route::delete('/category-events/{id}', [CategoryEventController::class, 'destroy']);
-    Route::get('/tour', [TourController::class, 'index'])->name('tour.index');
 });
 
 
