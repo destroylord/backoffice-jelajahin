@@ -38,13 +38,8 @@
       <div id="collapseTour" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Tour</h6>
-<<<<<<< HEAD
-          <a class="collapse-item" href="{{route('tour.index')}}">Add Tour</a>
-          <a class="collapse-item" href="form_advanceds.html">List Tour</a>
-=======
           <a class="collapse-item" href=" {{{route('tour.create')}}} ">Add Tour</a>
           <a class="collapse-item" href="{{ route('tour.index') }}">List Tour</a>
->>>>>>> dbee3a1c917cceb92a3dc5cf70a19f25b063193e
         </div>
       </div>
     </li>
