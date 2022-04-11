@@ -35,7 +35,7 @@ class CategoryEventController extends Controller
         $model->delete();
         return redirect('category-event');
         */
-        $data = CategoryEvent::find($id);
+        $data = CategoryEvent::find();
         $data->delete();
         return redirect('/category-events');
     }
