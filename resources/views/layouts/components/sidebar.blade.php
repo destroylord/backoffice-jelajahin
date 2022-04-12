@@ -7,7 +7,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('dashboard')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -24,8 +24,8 @@
       <div id="collapseRestaurant" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Restaurant</h6>
-          <a class="collapse-item" href="alerts.html">Add Restaurant</a>
-          <a class="collapse-item" href="buttons.html">List Restaurant</a>
+          <a class="collapse-item" href="{{route('restaurant.create')}}">Add Restaurant</a>
+          <a class="collapse-item" href="{{route('restaurant.index')}}">List Restaurant</a>
         </div>
       </div>
     </li>
@@ -38,8 +38,8 @@
       <div id="collapseTour" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Tour</h6>
-          <a class="collapse-item" href="form_basics.html">Add Tour</a>
-          <a class="collapse-item" href="form_advanceds.html">List Tour</a>
+          <a class="collapse-item" href=" {{{route('tour.create')}}} ">Add Tour</a>
+          <a class="collapse-item" href="{{ route('tour.index') }}">List Tour</a>
         </div>
       </div>
     </li>
