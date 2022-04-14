@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('restaurant', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->text("description");
+            $table->string("address");
+            $table->string("image");
+            $table->string("restaurant_type");
+            $table->char("harga");
+            $table->string("food_type");
+            $table->string("website");
+            $table->string("province");
+            $table->string("city");
+            $table->float("latitude");
+            $table->float("longtitude");
             $table->timestamps();
         });
     }
