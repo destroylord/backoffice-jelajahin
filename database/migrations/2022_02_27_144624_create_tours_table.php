@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_tour')->primary();
             $table->string('name', 100);
             $table->text('description');
-            $table->blob('image');
+            $table->binary('image');
             $table->smallInteger('ticket_price_weekday');
             $table->text('address');
             $table->string('category');
