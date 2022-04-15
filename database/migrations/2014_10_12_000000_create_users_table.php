@@ -14,9 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('uuid_user')->primary();
             $table->string('name');
             $table->string('email')->unique();
+            $table->binary('image', 100)->nullable();
+            $table->string('origin');
+            $table->tinyInteger('adventure_level');
+            $table->tinyInteger('total_apprecation');
+            $table->tinyInteger('total_review');
+            $table->tinyInteger('total_event');
+            $table->tinyInteger('total_point');
+            $table->tinyInteger('total_xp');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
