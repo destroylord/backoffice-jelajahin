@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_lodging')->primary();
 
             // Foreign Key Keeper
-            $table->uuid('uuid_keepers');
+            $table->uuid('uuid_keepers')->nullable();
 
             $table->string('name');
             $table->text('description');
@@ -34,11 +34,11 @@ return new class extends Migration
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
 
-            $table->integer('rating_average');
-            $table->integer('rating_service');
-            $table->integer('rating_friendly');
-            $table->integer('rating_clean');
-            $table->integer('rating_count');
+            $table->integer('rating_average')->nullable();
+            $table->integer('rating_service')->nullable();
+            $table->integer('rating_friendly')->nullable();
+            $table->integer('rating_clean')->nullable();
+            $table->integer('rating_count')->nullable();
             $table->text('address');
             $table->float('latitude', 10, 6);
             $table->float('longtitude', 10, 6);
