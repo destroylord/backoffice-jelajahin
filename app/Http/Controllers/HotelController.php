@@ -14,7 +14,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::orderBy('created_at', 'DESC')->get();
+        $hotels = Hotel::all();
         return view('hotel.index', compact('hotels'));
     }
 
@@ -25,7 +25,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('hotel.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('image');
+
+        $attr = $request->all();
+        $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
+        $path = $file->storeAs('/public/hotel', $fileName);
+
+        $attr['image'] = $path;
+
+        Hotel::create($attr);
+        return back();
     }
 
     /**
