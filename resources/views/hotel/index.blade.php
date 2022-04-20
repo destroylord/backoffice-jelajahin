@@ -45,7 +45,7 @@
                             <td>{{$hotel->email}}</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
-                                <a href="#" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
+                                <a href="{{route('hotel.edit', $hotel->uuid_lodging)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
                                 <a href="/hotel/{{$hotel->uuid_lodging}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
                             </td>
                         </tr>

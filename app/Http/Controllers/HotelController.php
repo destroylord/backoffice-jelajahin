@@ -41,7 +41,7 @@ class HotelController extends Controller
 
         $attr = $request->all();
         $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
-        $path = $file->storeAs('/public/hotel', $fileName);
+        $path = $file->storeAs('hotel', $fileName);
 
         $attr['image'] = $path;
 
@@ -68,7 +68,8 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hotel = Hotel::findOrFail($id);
+        return view('hotel.edit', compact('hotel'));
     }
 
     /**
@@ -78,9 +79,24 @@ class HotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Hotel $hotel)
     {
-        //
+        $attr = $request->all();
+        $file = $request->file('image');
+
+        if ($request->hasFile('image')) {
+            Storage::delete($hotel->image);
+            $image = $file->store('hotel');
+        } else {
+            $image = $hotel->image;
+        }
+
+        $attr['image'] = $image;
+
+        $hotel->update($attr);
+
+        return back();
+
     }
 
     /**

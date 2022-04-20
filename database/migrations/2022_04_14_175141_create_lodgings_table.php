@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('description');
             $table->mediumInteger('price_min');
             $table->mediumInteger('price_max');
-            $table->binary('image');
+            $table->text('image');
             $table->smallInteger('hotel_star')->nullable();
             $table->string('language', 50)->nullable();
             $table->string('phone', 15);

@@ -29,7 +29,7 @@
             </div>
             <form action="{{ route('hotel.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @include('hotel.partials.form-control')
+                @include('hotel.partials.form-control', ['submit' => 'Submit'])
             </form>
         </div>
     </div>

@@ -2,10 +2,10 @@
 <div class="card-body">
     <div class="form-group">
         <label for="">Name</label>
-        <input type="text" class="form-control" id="" name="name" placeholder="Enter name...">
+        <input type="text" class="form-control" id="" value="{{ $hotel->name ?? '' }}" name="name" placeholder="Enter name...">
     </div>
     <div class="form-group">
-        <textarea name="description" id="" cols="30" rows="10" class="form-control">Enter Description</textarea>
+        <textarea name="description" id="" cols="30" rows="10" class="form-control">{{$hotel->description ?? ''}}</textarea>
     </div>
     <h6 class="mt-4 py-3 font-weight-bold text-primary">Location</h6>
 
@@ -17,13 +17,13 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Latitude</label>
-                <input type="text" name="latitude" class="form-control" placeholder="Latitude" id="latitude">
+                <input type="number" name="latitude" value="{{$hotel->latitude ?? ''}}" class="form-control" placeholder="Latitude" id="latitude">
             </div>
         </div>
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Longtitude</label>
-                <input type="text" class="form-control" name="longtitude" placeholder="Longtitude" id="longtitude">
+                <input type="number" class="form-control" name="longtitude" value="{{$hotel->longtitude ?? ''}}" placeholder="Longtitude" id="longtitude">
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
     <input type="button" class="btn btn-success float-right" id="generateLink" value="Generate Link"></input>
     <div class="form-group">
         <label>Address</label>
-        <textarea name="address" id="" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="address" id="" cols="30" rows="10" class="form-control">{{$hotel->address ?? ''}}</textarea>
     </div>
 </div>
 </div>
@@ -44,11 +44,11 @@
 </div>
 <div class="card-body">
     <div class="form-group">
-        <img id="blah" src="#" alt="your image" width="100%" height="auto" />
+        <img id="blah" src="{{ asset($hotel->image ?? '')  }}" alt="your image" width="100%" height="auto" />
     </div>
     <div class="form-group">
     <div class="custom-file">
-        <input type="file" accept="image/*" name="image" class="custom-file-input" id="imgInp">
+        <input type="file" accept="image/*" name="image" class="custom-file-input" id="imgInp" value="{{$hotel->image ?? ''}}">
         <label class="custom-file-label" for="customFile">Pilih gambar</label>
     </div>
     </div>
@@ -56,27 +56,27 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="">Min Price</label>
-                <input type="number" name="price_min" class="form-control" id="" placeholder="ex:1000">
+                <input type="number" name="price_min" class="form-control" id="" value="{{$hotel->price_min ?? ''}}" placeholder="ex:1000">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label for="">Max Price</label>
-                <input type="number" class="form-control" name="price_max" id="" placeholder="ex:1000">
+                <input type="number" class="form-control" name="price_max" value="{{$hotel->price_max ?? ''}}" id="" placeholder="ex:1000">
             </div>
         </div>
     </div>
     <div class="form-group">
         <label for="">Phone</label>
-        <input type="number" name="phone" class="form-control" placeholder="089xxxx">
+        <input type="number" name="phone" class="form-control" value="{{$hotel->phone ?? ''}}" placeholder="089xxxx">
     </div>
     <div class="form-group">
         <label for="">Website</label>
-        <input type="url" class="form-control" name="website" placeholder="https://example.com">
+        <input type="url" class="form-control" name="website" value="{{$hotel->website ?? ''}}" placeholder="https://example.com">
     </div>
     <div class="form-group">
         <label for="">Email</label>
-        <input type="email" class="form-control" name="email" placeholder="john@jelajahin.com">
+        <input type="email" class="form-control" name="email" value="{{$hotel->email ?? ''}}" placeholder="john@jelajahin.com">
     </div>
-    <button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
+    <button type="submit" class="btn btn-primary w-100 mt-4">{{$submit ?? 'Update'}}</button>
 </div>
