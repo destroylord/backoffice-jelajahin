@@ -1,4 +1,12 @@
 @extends('layouts.app', ['title' => 'Add Restaurant', 'breadcumb' => 'Add Restaurant'])
+<head>
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+      </style>
+</head>
 
 @section('content')
     <div class="row mb-3">
@@ -12,8 +20,13 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="form-group">
-                                <label for="">Images Restaurant</label>
-                                <input type="file" class="form-control" id="" aria-describedby="" placeholder="Enter name restaurant">
+                                <img id="blah" src="#" alt="your image" width="50%" height="auto" />
+                            </div>
+                            <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" name="image" class="custom-file-input" id="imgInp">
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Food Type</label>
@@ -92,7 +105,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             {{-- Maps --}}
-                            <section class="map">
+                            <!--<section class="map">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -102,13 +115,56 @@
                                     2. Click on your location point
                                     3. Click "Share" and choose "Embed map" tab
                                     4. Copy only URL and paste it within the src="" field below
-                                -->
+                                
                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.485196115994!2d103.85995441789784!3d1.2880401763270322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb4e58ad9cd826e!2sSingapore+Flyer!5e0!3m2!1sen!2sth!4v1505825620371" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </section> -->
+                            <style>
+                                pre.ui-coordinates {
+                                  position:absolute;
+                                  bottom:10px;
+                                  left:10px;
+                                  padding:5px 10px;
+                                  background:rgba(0,0,0,0.5);
+                                  color:#fff;
+                                  font-size:11px;
+                                  line-height:18px;
+                                  border-radius:3px;
+                                  }
+                                </style>
+                                <div id='map'></div>
+                                <pre id='coordinates' class='ui-coordinates'></pre>
+                                <script>
+                                L.mapbox.accessToken = 'pk.eyJ1IjoibG9yZXh5b2kiLCJhIjoiY2wyNGdoOHd6MG13bTNwcWUwbXYzdDNtZyJ9.OsdznuN3mCi4JMvanTJYPA';
+                                var map = L.mapbox.map('map')
+                                    .setView([0, 0], 2)
+                                    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+                                
+                                var coordinates = document.getElementById('coordinates');
+                                
+                                var marker = L.marker([0, 0], {
+                                    icon: L.mapbox.marker.icon({
+                                      'marker-color': '#f86767'
+                                    }),
+                                    draggable: true
+                                }).addTo(map);
+                                
+                                // every time the marker is dragged, update the coordinates container
+                                marker.on('dragend', ondragend);
+                                
+                                // Set the initial marker coordinate on load.
+                                ondragend();
+                                
+                                function ondragend() {
+                                    var m = marker.getLatLng();
+                                    coordinates.innerHTML = 'Latitude: ' + m.lat + '<br />Longitude: ' + m.lng;
+                                }
+                                </script>
+
+                            
 
 
                         </div>
