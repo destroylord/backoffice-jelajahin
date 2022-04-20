@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
@@ -90,6 +91,10 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hotelId = Hotel::findOrFail($id);
+        Storage::delete($hotelId->image);
+        $hotelId->delete();
+
+        return back();
     }
 }

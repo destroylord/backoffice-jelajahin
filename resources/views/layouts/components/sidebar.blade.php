@@ -30,11 +30,6 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Hotel</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>City</span></a>
-      </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
