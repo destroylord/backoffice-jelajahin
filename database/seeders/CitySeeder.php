@@ -23,6 +23,18 @@ class CitySeeder extends Seeder
 
         $city = [
             [
+                'name' => 'Bondowoso',
+                'province_id' => '6',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Jember',
+                'province_id' => '6',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
                 'name' => 'Surabaya',
                 'province_id' => '6',
                 'created_at' => new DateTime(),
