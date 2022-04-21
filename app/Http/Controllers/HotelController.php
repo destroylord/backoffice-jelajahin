@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HotelRequest;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
@@ -14,7 +16,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::orderBy('created_at', 'DESC')->get();
+        $hotels = Hotel::all();
         return view('hotel.index', compact('hotels'));
     }
 
@@ -25,7 +27,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('hotel.create');
     }
 
     /**
@@ -34,9 +36,18 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HotelRequest $request)
     {
-        //
+        $file = $request->file('image');
+
+        $attr = $request->all();
+        $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
+        $path = $file->storeAs('hotel', $fileName);
+
+        $attr['image'] = $path;
+
+        Hotel::create($attr);
+        return back();
     }
 
     /**
@@ -58,7 +69,8 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hotel = Hotel::findOrFail($id);
+        return view('hotel.edit', compact('hotel'));
     }
 
     /**
@@ -68,9 +80,24 @@ class HotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HotelRequest $request, Hotel $hotel)
     {
-        //
+        $attr = $request->all();
+        $file = $request->file('image');
+
+        if ($request->hasFile('image')) {
+            Storage::delete($hotel->image);
+            $image = $file->store('hotel');
+        } else {
+            $image = $hotel->image;
+        }
+
+        $attr['image'] = $image;
+
+        $hotel->update($attr);
+
+        return back();
+
     }
 
     /**
@@ -81,6 +108,10 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hotelId = Hotel::findOrFail($id);
+        Storage::delete($hotelId->image);
+        $hotelId->delete();
+
+        return back();
     }
 }

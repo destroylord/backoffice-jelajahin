@@ -21,18 +21,18 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->tinyInteger('price_min');
-            $table->tinyInteger('price_max');
-            $table->binary('image');
-            $table->smallInteger('hotel_star');
-            $table->string('language', 50);
+            $table->mediumInteger('price_min');
+            $table->mediumInteger('price_max');
+            $table->text('image');
+            $table->smallInteger('hotel_star')->nullable();
+            $table->string('language', 50)->nullable();
             $table->string('phone', 15);
             $table->string('website', 50);
             $table->string('email')->nullable();
 
             // Foreign key provincies and city
-            $table->unsignedInteger('province_id');
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('province_id')->nullable();
+            $table->unsignedInteger('city_id')->nullable();
 
             $table->integer('rating_average')->nullable();
             $table->integer('rating_service')->nullable();

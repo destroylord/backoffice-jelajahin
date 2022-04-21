@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->smallInteger('rating_service');
-            $table->smallInteger('rating_friendly');
-            $table->smallInteger('rating_clean');
+            $table->mediumInteger('rating_service');
+            $table->mediumInteger('rating_friendly');
+            $table->mediumInteger('rating_clean');
             $table->binary('image');
             $table->uuid('uuid_users');
             $table->uuid('uuid_lodgings');
