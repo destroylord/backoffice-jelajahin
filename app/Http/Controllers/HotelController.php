@@ -115,3 +115,4 @@ class HotelController extends Controller
         return back();
     }
 }
+

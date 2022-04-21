@@ -8,6 +8,7 @@ use App\Models\Traits\HasUuid;
 
 class Hotel extends Model
 {
+
     use HasFactory, HasUuid;
 
     protected $table = 'lodgings';
