@@ -13,17 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('gallery_tours', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('province_id');
-            $table->timestamps();
+            $table->binary('image');
+            $table->uuid('uuid_tours');
 
-            $table->foreign('province_id')
-                    ->references('id')
-                    ->on('provincies')
+
+            $table->foreign('uuid_tours')
+                    ->references('uuid_tour')
+                    ->on('tours')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
+
+            $table->timestamps();
         });
     }
 
@@ -34,8 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('gallery_tours');
     }
-
 };
-

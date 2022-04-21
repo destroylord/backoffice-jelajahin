@@ -13,17 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('gallery_restaurants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('province_id');
+            $table->binary('image');
+            $table->enum('is_cover', ['0', '1']);
+
+            $table->uuid('uuid_restaurants');
             $table->timestamps();
 
-            $table->foreign('province_id')
-                    ->references('id')
-                    ->on('provincies')
+            $table->foreign('uuid_restaurants')
+                    ->references('uuid_restaurant')
+                    ->on('restaurants')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
+
         });
     }
 
@@ -34,8 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('gallery_restaurants');
     }
-
 };
-

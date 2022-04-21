@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('keepers', function (Blueprint $table) {
+            $table->uuid('uuid_keeper')->primary();
             $table->string('name');
-            $table->unsignedInteger('province_id');
+            $table->string('email', 40)->unique();
+            $table->string('username',20);
+            $table->enum('role', ['0', '1', '2', '3']);
+            $table->string('job_position')->comment('this column jabatan');
+            $table->string('password');
             $table->timestamps();
-
-            $table->foreign('province_id')
-                    ->references('id')
-                    ->on('provincies')
-                    ->cascadeOnUpdate()
-                    ->cascadeOnDelete();
         });
     }
 
@@ -34,8 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('keepers');
     }
-
 };
-

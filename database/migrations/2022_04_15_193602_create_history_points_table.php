@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('history_points', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->unsignedInteger('province_id');
+            $table->uuid('uuid_users');
+            $table->integer('quantity_points');
+            $table->integer('quantity_xp');
+            $table->tinyInteger('type');
             $table->timestamps();
 
-            $table->foreign('province_id')
-                    ->references('id')
-                    ->on('provincies')
+            $table->foreign('uuid_users')
+                    ->references('uuid_user')
+                    ->on('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
         });
@@ -34,8 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('history_points');
     }
-
 };
-

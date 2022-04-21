@@ -1,73 +1,26 @@
-<ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon">
-      <img src="img/logo/logo2.png">
-    </div>
-    <div class="sidebar-brand-text mx-3">Jelajahin</div>
-  </a>
-  <hr class="sidebar-divider my-0">
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('dashboard')}}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
-  </li>
-  <hr class="sidebar-divider">
-  <div class="sidebar-heading">
-    Features
-  </div>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRestaurant"
-      aria-expanded="true" aria-controls="collapseRestaurant">
-      <i class="far fa-fw fa-window-maximize"></i>
-      <span>Restaurant</span>
-    </a>
-    <div id="collapseRestaurant" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Restaurant</h6>
-        <a class="collapse-item" href="{{route('restaurant.create')}}">Add Restaurant</a>
-        <a class="collapse-item" href="{{route('restaurant.index')}}">List Restaurant</a>
-      </div>
-    </div>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true"
-      aria-controls="collapseTour">
-      <i class="fab fa-fw fa-wpforms"></i>
-      <span>Tour</span>
-    </a>
-    <div id="collapseTour" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Tour</h6>
-        <a class="collapse-item" href=" {{{route('tour.create')}}} ">Add Tour</a>
-        <a class="collapse-item" href="{{ route('tour.index') }}">List Tour</a>
-      </div>
-    </div>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHotel" aria-expanded="true"
-      aria-controls="collapseHotel">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Hotel</span>
-    </a>
-    <div id="collapseHotel" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Hotel</h6>
-        <a class="collapse-item" href="simple-tables.html">Add Hotel</a>
-        <a class="collapse-item" href="datatables.html">List Hotel</a>
-      </div>
-    </div>
-  </li>
-  <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCity" aria-expanded="true"
-        aria-controls="collapseCity">
-        <i class="fas fa-fw fa-table"></i>
-        <span>City</span>
-      </a>
-      <div id="collapseCity" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">City</h6>
-          <a class="collapse-item" href="simple-tables.html">Add City</a>
-          <a class="collapse-item" href="datatables.html">List City</a>
+
+<nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+      <i class="fa fa-bars"></i>
+    </button>
+    <ul class="navbar-nav ml-auto">
+      {{-- <div class="topbar-divider d-none d-sm-block"></div> --}}
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img class="img-profile rounded-circle" src="/img/boy.png" style="max-width: 60px">
+          <span class="ml-2 d-none d-lg-inline text-white small">{{ Auth::user()->name}}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="{{ route('profile.index')}}">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
         </div>
       </div>
     </li>

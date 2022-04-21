@@ -13,15 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('menus', function (Blueprint $table) {
+            $table->uuid('uuid_menu')->primary();
+            $table->uuid('uuid_restaurants');
             $table->string('name');
-            $table->unsignedInteger('province_id');
+            $table->text('description');
+            $table->binary('image');
+            $table->tinyInteger('price');
+            $table->string('category');
             $table->timestamps();
 
-            $table->foreign('province_id')
-                    ->references('id')
-                    ->on('provincies')
+            $table->foreign('uuid_restaurants')
+                    ->references('uuid_restaurant')
+                    ->on('restaurants')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
         });
@@ -34,8 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('menus');
     }
-
 };
-
