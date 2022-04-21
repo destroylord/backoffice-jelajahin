@@ -13,7 +13,7 @@ class HotelRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,15 @@ class HotelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required',
-            'description'   => 'required',
-            'image'         => 'required',
+            'name'          => 'required|min:8',
+            'description'   => 'required|min:10',
+            'image'         => 'required|mime:jpg,png',
             'price_min'     => 'required',
-            'price_max'     => 'required'
+            'price_max'     => 'required',
+            'website'       => 'required',
+            'phone'         => 'required|min:12|max:13',
+            'email'         => 'required|unique:lodgings',
+            'address'       => 'required',
         ];
     }
 }
