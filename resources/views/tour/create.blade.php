@@ -1,5 +1,23 @@
 @extends('layouts.app', ['title' => 'Add Wisata', 'breadcumb' => 'Add Wisata'])
+@push('style')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <style>
+    #map {
+        width: 100%;
+        height: 400px;
+    }
+    </style>
+   <!-- Load Leaflet from CDN -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
 
+@endpush
 @section('content')
     <div class="row mb-3">
         <div class="col-lg-12">
@@ -87,23 +105,30 @@
                     <div class="row">
                         <div class="col-lg-6">
                             {{-- Maps --}}
-                            <section class="map">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="map">
-                                <!-- How to change your own map point
-                                    1. Go to Google Maps
-                                    2. Click on your location point
-                                    3. Click "Share" and choose "Embed map" tab
-                                    4. Copy only URL and paste it within the src="" field below
-                                -->
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.485196115994!2d103.85995441789784!3d1.2880401763270322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb4e58ad9cd826e!2sSingapore+Flyer!5e0!3m2!1sen!2sth!4v1505825620371" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                            </div>
-                                        </div>
+                            <div class="form-group">
+                                <label>Maps</label>
+                                <div id="map"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Latitude</label>
+                                        <input type="number" name="latitude" value="{{$hotel->latitude ?? ''}}" class="form-control" placeholder="Latitude" id="latitude" readonly>
+                                        @error('latitude')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
-                            </section>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Longtitude</label>
+                                        <input type="number" class="form-control" name="longtitude" value="{{$hotel->longtitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
+                                        @error('longtitude')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>
@@ -196,3 +221,49 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script type="text/javascript">
+        // Images Preview
+        // Maps
+        var curLocation = [0,0];
+        if (curLocation[0]==0 && curLocation[1]==0) {
+            curLocation = [51.505, -0.09];
+        }
+       var map = L.map('map').setView([51.505, -0.09], 16);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        map.attributionControl.setPrefix(false);
+        var marker  = new L.marker(curLocation,{
+            draggable: 'true'
+        });
+        console.log(marker);
+        marker.on('dragend', function(event){
+            var position = marker.getLatLng();
+            marker.setLatLng(position, {
+                draggable: 'true'
+            })
+            .bindPopup(position).update();
+            $('#latitude').val(position.lat);
+            $('#longtitude').val(position.lng).keyup();
+        })
+        $('#latitude, #longtitude').change(function(){
+            var position = [parseInt($("#latitude").val()), parseInt($("#longtitude").val())]
+            marker.setLatLng(position, {
+                draggable: 'true',
+            }).bindPopup(position).update();
+            map.panTo(position)
+        })
+        map.addLayer(marker)
+        // Generate Url
+        $("#generateLink").click(function(){
+            const lat = $('#latitude').val();
+            const long = $('#longtitude').val();
+            const uri = `https://www.google.com/maps/@${lat},${long},16z`
+            var maintext = "GoMaps." + lat + "/" + long +",16z";
+            var siteurl = maintext.trim()
+            $('.generated-url').text(siteurl).attr("href", uri);
+        });
+    </script>
+@endpush
