@@ -28,7 +28,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">General Form Restaurant</h6>
             </div>
                 <div class="card-body">
-                 <form action="{{ route('restaurant.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                 <form action="{{ route('restaurant.update', $restaurant->uuid_restaurant)}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     @include('restaurant.partials.form-control', ['submit' => 'Submit'])
                 </form>
