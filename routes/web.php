@@ -1,20 +1,18 @@
 <?php
 
-use App\Http\Controllers\{DashboardController, ProfileController, TourController};
+use App\Http\Controllers\{DashboardController, HotelController, ProfileController};
 use Illuminate\Support\Facades\Route;
 
 
-Route::redirect('/', 'login');
+// Route::redirect('/', 'login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::resource('tour', TourController::class );
+
+    Route::resource('/hotel',HotelController::class)->except(['destroy']);
+    Route::get('/hotel/{lodging:uuid_lodging}/delete', [HotelController::class, 'destroy'])->name('hotel.destroy');
+
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';

@@ -17,7 +17,7 @@ class HotelFactory extends Factory
     public function definition()
     {
         return [
-            //
+
         ];
     }
 }

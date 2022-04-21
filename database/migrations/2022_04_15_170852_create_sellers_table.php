@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->id();
+        Schema::create('sellers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('address');
+            $table->binary('image');
+            $table->tinyInteger('price_min');
+            $table->tinyInteger('price_max');
+            $table->float('latitude', 10,6);
+            $table->float('longtitude', 10,6);
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('sellers');
     }
 };
