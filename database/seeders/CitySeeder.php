@@ -480,25 +480,25 @@ class CitySeeder extends Seeder
             ],
             [
                 'name' => 'Bitung',
-                'province_id' => '19',
+                'province_id' => '18',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ],
             [
                 'name' => 'Kotamobagu',
-                'province_id' => '19',
+                'province_id' => '18',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ],
             [
                 'name' => 'Manado',
-                'province_id' => '19',
+                'province_id' => '18',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ],
             [
                 'name' => 'Tomohon',
-                'province_id' => '19',
+                'province_id' => '18',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ],
@@ -619,6 +619,42 @@ class CitySeeder extends Seeder
             [
                 'name' => 'Tebing Tinggi',
                 'province_id' => '19',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Pajene',
+                'province_id' => '28',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Mamasa',
+                'province_id' => '28',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Mamuju',
+                'province_id' => '28',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Mamuju Tengah',
+                'province_id' => '28',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Pasangkayu',
+                'province_id' => '28',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime()
+            ],
+            [
+                'name' => 'Polewali Mandar',
+                'province_id' => '28',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ],
