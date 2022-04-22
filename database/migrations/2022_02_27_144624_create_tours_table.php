@@ -15,20 +15,32 @@ return new class extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->uuid('uuid_tour')->primary();
-            $table->string('name');
+            $table->string('name', 100);
             $table->text('description');
-            $table->text('image');
-            $table->mediumInteger('ticket_price_weekday');
-            $table->mediumInteger('ticket_price_weekend');
+            $table->binary('image');
+            $table->smallInteger('ticket_price_weekday');
             $table->text('address');
             $table->string('category');
-            $table->float('latitude');
-            $table->float('longtitude');
-            $table->integer('rating_avg')->nullable();
-            $table->integer('rating_count')->nullable();
-            $table->unsignedInteger('province_id')->nullable();
-            $table->unsignedInteger('city_id')->nullable();
-            $table->timestamps();
+            $table->float('latitude', 10,6);
+            $table->float('longtitude', 10, 6);
+            $table->float('rating_avg');
+            $table->tinyInteger('rating_count');
+            $table->unsignedInteger('province_id');
+            $table->unsignedInteger('city_id');
+            $table->timestamps($precision = 0);
+
+
+            $table->foreign('province_id')
+                        ->references('id')
+                        ->on('provincies')
+                        ->cascadeOnUpdate()
+                        ->cascadeOnDelete();
+            $table->foreign('city_id')
+                        ->references('id')
+                        ->on('cities')
+                        ->cascadeOnDelete()
+                        ->cascadeOnUpdate();
+
         });
     }
 

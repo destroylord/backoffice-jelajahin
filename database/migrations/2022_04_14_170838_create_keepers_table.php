@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_events', function (Blueprint $table) {
-            $table->id();
+        Schema::create('keepers', function (Blueprint $table) {
+            $table->uuid('uuid_keeper')->primary();
             $table->string('name');
+            $table->string('email', 40)->unique();
+            $table->string('username',20);
+            $table->enum('role', ['0', '1', '2', '3']);
+            $table->string('job_position')->comment('this column jabatan');
+            $table->string('password');
             $table->timestamps();
-
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_events');
+        Schema::dropIfExists('keepers');
     }
 };

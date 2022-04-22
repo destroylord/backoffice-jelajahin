@@ -1,7 +1,7 @@
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon">
-        <img src="img/logo/logo2.png">
+        {{-- <img src="img/logo/logo2.png"> --}}
       </div>
       <div class="sidebar-brand-text mx-3">Jelajahin</div>
     </a>
@@ -16,53 +16,19 @@
       Features
     </div>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRestaurant"
-        aria-expanded="true" aria-controls="collapseRestaurant">
-        <i class="far fa-fw fa-window-maximize"></i>
-        <span>Restaurant</span>
-      </a>
-      <div id="collapseRestaurant" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Restaurant</h6>
-          <a class="collapse-item" href="alerts.html">Add Restaurant</a>
-          <a class="collapse-item" href="buttons.html">List Restaurant</a>
-        </div>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ route('tour.index')}}" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true"
-        aria-controls="collapseTour">
-        <i class="fab fa-fw fa-wpforms"></i>
-        <span>Wisata</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHotel" aria-expanded="true"
-        aria-controls="collapseHotel">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Hotel</span>
-      </a>
-      <div id="collapseHotel" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Hotel</h6>
-          <a class="collapse-item" href="simple-tables.html">Add Hotel</a>
-          <a class="collapse-item" href="datatables.html">List Hotel</a>
-        </div>
-      </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCity" aria-expanded="true"
-          aria-controls="collapseCity">
-          <i class="fas fa-fw fa-table"></i>
-          <span>City</span>
-        </a>
-        <div id="collapseCity" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">City</h6>
-            <a class="collapse-item" href="simple-tables.html">Add City</a>
-            <a class="collapse-item" href="datatables.html">List City</a>
-          </div>
-        </div>
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Restaurant</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Tour</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('hotel.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Hotel</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategoryEvents" aria-expanded="true"
