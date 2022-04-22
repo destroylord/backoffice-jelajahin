@@ -26,7 +26,7 @@ class HotelRequest extends FormRequest
         return [
             'name'          => 'required|min:8',
             'description'   => 'required|min:10',
-            'image'         => 'required|mime:jpg,png',
+            'image'         => 'required|mimes:jpg,png',
             'price_min'     => 'required',
             'price_max'     => 'required',
             'website'       => 'required',

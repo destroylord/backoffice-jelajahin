@@ -22,8 +22,8 @@
             Logout
           </a>
         </div>
-      </div>
     </li>
-  <hr class="sidebar-divider">
-  <div class="version" id="version-ruangadmin"></div>
-</ul>
+    <hr class="sidebar-divider">
+    <div class="version" id="version-ruangadmin"></div>
+    </ul>
+</nav>
