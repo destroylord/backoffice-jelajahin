@@ -24,7 +24,24 @@ class RestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => 'required',
+            'description'   => 'required',
+            'image'         => 'required|mimes:jpg,jpeg,png',
+            'food_type'     => 'required',
+            'restaurant_type' => 'required',
+            'website'       => 'required',
+            'phone'         => 'required|min:12|max:13',
+            'price_min'     => 'required',
+            'price_max'     => 'required',
+            'start_time'    => 'required',
+            'end_time'      => 'required',
+            'business_open' => 'required',
+            'business_close'=> 'required',
+            'province_id'   => 'required',
+            'city_id'       => 'required',
+            'start_time'    => 'required',
+            'end_time'      => 'required',
+            'address'       => 'required|max:255|min:10'
         ];
     }
 }

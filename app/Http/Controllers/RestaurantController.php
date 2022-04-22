@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RestaurantRequest;
 use App\Models\{City, Province, Restaurant};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -46,7 +47,7 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestaurantRequest $request)
     {
         $file = $request->file('image');
 
@@ -81,7 +82,8 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('restaurant.edit', compact('restaurant'));
+        $provinces = Province::all();
+        return view('restaurant.edit', compact('restaurant','provinces'));
     }
 
     /**
@@ -91,9 +93,23 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $attr = $request->all();
+        $file = $request->file('image');
+
+        if ($request->hasFile('image')) {
+            Storage::delete($restaurant->image);
+            $image = $file->store('restaurant');
+        } else {
+            $image = $restaurant->image;
+        }
+
+        $attr['image'] = $image;
+
+        $restaurant->update($attr);
+
+        return back();
     }
 
     /**
