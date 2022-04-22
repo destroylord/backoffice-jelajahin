@@ -12,7 +12,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/category-events', [CategoryEventController::class, 'create'])->name('categoryEvent.create');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::resource('tour', TourController::class );
+    
+    Route::resource('/tour',TourController::class)->except(['destroy']);
+    Route::get('/tour/{tour:uuid_tour}/delete', [TourController::class, 'destroy'])->name('tour.destroy');
 });
 
 

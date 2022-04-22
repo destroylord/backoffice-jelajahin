@@ -30,18 +30,11 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true"
+      <a class="nav-link collapsed" href="{{ route('tour.index')}}" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true"
         aria-controls="collapseTour">
         <i class="fab fa-fw fa-wpforms"></i>
         <span>Wisata</span>
       </a>
-      <div id="collapseTour" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Tour</h6>
-          <a class="collapse-item" href=" {{{route('tour.create')}}} ">Add Wisata</a>
-          <a class="collapse-item" href="{{ route('tour.index') }}">List Wisata</a>
-        </div>
-      </div>
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHotel" aria-expanded="true"
