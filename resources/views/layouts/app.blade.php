@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/logo.png" rel="icon">
+  {{-- <link href="img/logo/logo.png" rel="icon"> --}}
   <title>Jelajahin - {{ $title ?? 'Dashboard'}}</title>
     @include('layouts.partials.style')
 </head>
@@ -30,7 +30,7 @@
             <h1 class="h3 mb-0 text-gray-800">{{ $breadcumb ?? 'Dashboard'}}</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ $title ?? 'Dashboard'}}</li>
             </ol>
           </div>
           <!--Row-->
@@ -45,6 +45,7 @@
       <!-- Footer -->
     </div>
   </div>
+
 
   <!-- Scroll to top -->
   <a class="scroll-to-top rounded" href="#page-top">
