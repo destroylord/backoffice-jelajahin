@@ -30,13 +30,13 @@ return new class extends Migration
             $table->string('website', 50);
             $table->time('business_open', $precision = 0);
             $table->time('business_close', $precision = 0);
-            $table->text('image');
+
+            $table->string('image', 100);
             $table->float('rating_averange')->nullable();
             $table->float('rating_service')->nullable();
             $table->float('rating_food')->nullable();
             $table->float('rating_clean')->nullable();
             $table->float('rating_count')->nullable();
-
             // Foreign key provincies and city
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');

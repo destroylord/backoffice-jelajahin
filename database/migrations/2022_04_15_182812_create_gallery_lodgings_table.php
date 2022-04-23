@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('gallery_lodgings', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->uuid('uuid_lodgings');
             $table->timestamps();
 

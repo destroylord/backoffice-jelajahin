@@ -21,11 +21,13 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('description');
+
             $table->mediumInteger('price_min');
             $table->mediumInteger('price_max');
-            $table->text('image');
+            $table->string('image', 100);
             $table->smallInteger('hotel_star')->nullable();
             $table->string('language', 50)->nullable();
+
             $table->string('phone', 15);
             $table->string('website', 50);
             $table->string('email')->nullable();

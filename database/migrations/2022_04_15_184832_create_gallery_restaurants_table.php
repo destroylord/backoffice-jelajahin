@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('gallery_restaurants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->enum('is_cover', ['0', '1']);
 
             $table->uuid('uuid_restaurants');

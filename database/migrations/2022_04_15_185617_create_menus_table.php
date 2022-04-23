@@ -18,7 +18,7 @@ return new class extends Migration
             $table->uuid('uuid_restaurants');
             $table->string('name');
             $table->text('description');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->tinyInteger('price');
             $table->string('category');
             $table->timestamps();

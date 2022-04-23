@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_attraction')->primary();
             $table->string('name', 50);
             $table->text('description');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->string('price', 15);
             $table->uuid('uuid_tours');
 
