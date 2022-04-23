@@ -32,10 +32,10 @@ return new class extends Migration
             $table->time('business_close', $precision = 0);
 
             $table->string('image', 100);
-            $table->float('rating_avg', 1,2)->nullable();
-            $table->float('rating_service',1,2)->nullable();
-            $table->float('rating_food',1,2)->nullable();
-            $table->float('rating_clean',1,2)->nullable();
+            $table->float('rating_avg', 8,2)->nullable();
+            $table->float('rating_service',8,2)->nullable();
+            $table->float('rating_food',8,2)->nullable();
+            $table->float('rating_clean',8,2)->nullable();
             $table->integer('rating_count')->nullable();
             // Foreign key provincies and city
             $table->unsignedInteger('province_id');
