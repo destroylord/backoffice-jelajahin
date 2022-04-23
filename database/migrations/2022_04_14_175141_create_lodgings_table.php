@@ -36,10 +36,10 @@ return new class extends Migration
             $table->unsignedInteger('province_id')->nullable();
             $table->unsignedInteger('city_id')->nullable();
 
-            $table->integer('rating_average')->nullable();
-            $table->integer('rating_service')->nullable();
-            $table->integer('rating_friendly')->nullable();
-            $table->integer('rating_clean')->nullable();
+            $table->float('rating_avg', 1,2)->nullable();
+            $table->float('rating_service',1,2)->nullable();
+            $table->float('rating_friendly',1,2)->nullable();
+            $table->float('rating_clean',1,2)->nullable();
             $table->integer('rating_count')->nullable();
             $table->text('address');
             $table->float('latitude', 10, 6);
