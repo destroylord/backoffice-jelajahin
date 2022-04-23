@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('website', 50);
             $table->time('business_open', $precision = 0);
             $table->time('business_close', $precision = 0);
-            $table->binary('image');
+            $table->string('image', 100);
             $table->float('rating_averange');
             $table->float('rating_service');
             $table->float('rating_food');

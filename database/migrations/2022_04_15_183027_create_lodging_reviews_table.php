@@ -20,7 +20,7 @@ return new class extends Migration
             $table->smallInteger('rating_service');
             $table->smallInteger('rating_friendly');
             $table->smallInteger('rating_clean');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->uuid('uuid_users');
             $table->uuid('uuid_lodgings');
             $table->timestamps();

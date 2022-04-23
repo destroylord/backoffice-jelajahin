@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('address');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->tinyInteger('price_min');
             $table->tinyInteger('price_max');
             $table->float('latitude', 10,6);

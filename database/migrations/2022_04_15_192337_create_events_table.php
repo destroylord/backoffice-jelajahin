@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_event')->primary();
             $table->string('name');
             $table->text('description');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->text('address');
             $table->dateTime('start_date');
             $table->dateTime('end_date');

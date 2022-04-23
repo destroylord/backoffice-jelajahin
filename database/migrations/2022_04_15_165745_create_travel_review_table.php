@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->tinyInteger('rating');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->uuid('uuid_users');
             $table->uuid('uuid_tours');
 

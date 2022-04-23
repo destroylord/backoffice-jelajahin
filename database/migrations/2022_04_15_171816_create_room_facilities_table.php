@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('room_facilities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->timestamps();
         });
     }
