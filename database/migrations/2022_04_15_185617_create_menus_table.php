@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->binary('image');
-            $table->tinyInteger('price');
+            $table->integer('price');
             $table->string('category');
             $table->timestamps();
 
