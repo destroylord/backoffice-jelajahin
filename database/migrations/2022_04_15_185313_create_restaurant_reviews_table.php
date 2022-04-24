@@ -20,7 +20,7 @@ return new class extends Migration
             $table->tinyInteger('rating_service');
             $table->tinyInteger('rating_food');
             $table->tinyInteger('rating_clean');
-            $table->binary('image');
+            $table->string('image', 100);
 
             $table->uuid('uuid_users');
             $table->uuid('uuid_restaurants');

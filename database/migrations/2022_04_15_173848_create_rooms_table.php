@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('room_size', 7);
             $table->tinyInteger('price');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->uuid('uuid_lodgings')->comment('this name column is penginapan');
 
             $table->foreign('uuid_lodgings')

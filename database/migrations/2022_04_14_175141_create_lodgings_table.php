@@ -21,11 +21,13 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('description');
+
             $table->mediumInteger('price_min');
             $table->mediumInteger('price_max');
-            $table->text('image');
+            $table->string('image', 100);
             $table->smallInteger('hotel_star')->nullable();
             $table->string('language', 50)->nullable();
+
             $table->string('phone', 15);
             $table->string('website', 50);
             $table->string('email')->nullable();
@@ -34,10 +36,10 @@ return new class extends Migration
             $table->unsignedInteger('province_id')->nullable();
             $table->unsignedInteger('city_id')->nullable();
 
-            $table->integer('rating_average')->nullable();
-            $table->integer('rating_service')->nullable();
-            $table->integer('rating_friendly')->nullable();
-            $table->integer('rating_clean')->nullable();
+            $table->float('rating_avg', 8,2)->nullable();
+            $table->float('rating_service',8,2)->nullable();
+            $table->float('rating_friendly',8,2)->nullable();
+            $table->float('rating_clean',8,2)->nullable();
             $table->integer('rating_count')->nullable();
             $table->text('address');
             $table->float('latitude', 10, 6);

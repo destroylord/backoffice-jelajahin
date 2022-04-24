@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HotelRequest;
-use App\Models\Hotel;
+use App\Http\Requests\RestaurantRequest;
+use App\Models\{City, Province, Restaurant};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class HotelController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all();
-        return view('hotel.index', compact('hotels'));
+        $restaurants = Restaurant::orderBy('created_at', 'DESC')->get();
+        return view('restaurant.index', compact('restaurants'));
     }
 
     /**
@@ -27,7 +27,18 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('hotel.create');
+        $provinces = Province::all();
+        return view('restaurant.create', compact('provinces'));
+    }
+
+    public function getCity($id)
+    {
+        $city = City::where('province_id', $id)->get();
+
+        return response()
+                    ->json([
+                        'data' => $city
+                    ],200);
     }
 
     /**
@@ -36,27 +47,29 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HotelRequest $request)
+    public function store(RestaurantRequest $request)
     {
         $file = $request->file('image');
 
         $attr = $request->all();
         $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
-        $path = $file->storeAs('hotel', $fileName);
+        $path = $file->storeAs('restaurant', $fileName);
 
         $attr['image'] = $path;
 
-        Hotel::create($attr);
+        Restaurant::create($attr);
         return back();
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
         //
     }
@@ -64,55 +77,53 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        $hotel = Hotel::findOrFail($id);
-        return view('hotel.edit', compact('hotel'));
+        $provinces = Province::all();
+        return view('restaurant.edit', compact('restaurant','provinces'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(HotelRequest $request, Hotel $hotel)
+    public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
         $attr = $request->all();
         $file = $request->file('image');
 
         if ($request->hasFile('image')) {
-            Storage::delete($hotel->image);
-            $image = $file->store('hotel');
+            Storage::delete($restaurant->image);
+            $image = $file->store('restaurant');
         } else {
-            $image = $hotel->image;
+            $image = $restaurant->image;
         }
 
         $attr['image'] = $image;
 
-        $hotel->update($attr);
+        $restaurant->update($attr);
 
         return back();
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $hotelId = Hotel::findOrFail($id);
-        Storage::delete($hotelId->image);
-        $hotelId->delete();
+        $restaurantId = Restaurant::findOrFail($id);
+        Storage::delete($restaurantId->image);
+        $restaurantId->delete();
 
         return back();
     }
 }
-
