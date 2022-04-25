@@ -17,18 +17,23 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('restaurant.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-utensils"></i>
           <span>Restaurant</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-map-marked-alt"></i>
           <span>Tour</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('hotel.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-hotel"></i>
           <span>Hotel</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('hidden_gem.index')}}">
+          <i class="fas fa-gem"></i>
+          <span>Hidden Gem</span></a>
       </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
