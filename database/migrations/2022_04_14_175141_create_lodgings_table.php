@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_lodging')->primary();
 
             // Foreign Key Keeper
-            $table->uuid('uuid_keepers')->nullable();
+            $table->uuid('uuid_keeper')->nullable();
 
             $table->string('name');
             $table->text('description');
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->float('latitude', 10, 6);
             $table->float('longtitude', 10, 6);
 
-            $table->foreign('uuid_keepers')
+            $table->foreign('uuid_keeper')
                     ->references('uuid_keeper')
                     ->on('keepers')
                     ->cascadeOnUpdate()

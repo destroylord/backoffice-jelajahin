@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('menu_typical_seller', function (Blueprint $table) {
-            $table->uuid('uuid_typicals');
+            $table->uuid('uuid_typical');
             $table->unsignedInteger('seller_id');
             $table->timestamps();
 
 
-            $table->foreign('uuid_typicals')
+            $table->foreign('uuid_typical')
                     ->references('uuid_typical')
                     ->on('menu_typicals')
                     ->cascadeOnUpdate()

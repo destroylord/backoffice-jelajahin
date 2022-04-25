@@ -17,10 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image', 100);
-            $table->uuid('uuid_tours');
+            $table->uuid('uuid_tour');
 
 
-            $table->foreign('uuid_tours')
+            $table->foreign('uuid_tour')
                     ->references('uuid_tour')
                     ->on('tours')
                     ->cascadeOnUpdate()

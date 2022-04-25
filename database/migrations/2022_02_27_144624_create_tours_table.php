@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
             $table->timestamps($precision = 0);
+            $table->integer('ticket_price_weekend');
 
 
             $table->foreign('province_id')
