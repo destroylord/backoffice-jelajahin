@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lodging_hotel_facility', function (Blueprint $table) {
-            $table->uuid('uuid_lodgings');
+            $table->uuid('uuid_lodging');
             $table->unsignedInteger('hotel_facility_id');
             $table->timestamps();
 
-            $table->foreign('uuid_lodgings')
+            $table->foreign('uuid_lodging')
                     ->references('uuid_lodging')
                     ->on('lodgings')
                     ->cascadeOnUpdate()

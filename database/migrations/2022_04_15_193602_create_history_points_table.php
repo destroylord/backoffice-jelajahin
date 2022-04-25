@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('history_points', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('uuid_users');
+            $table->uuid('uuid_user');
             $table->integer('quantity_points');
             $table->integer('quantity_xp');
             $table->tinyInteger('type');
             $table->timestamps();
 
-            $table->foreign('uuid_users')
+            $table->foreign('uuid_user')
                     ->references('uuid_user')
                     ->on('users')
                     ->cascadeOnUpdate()
