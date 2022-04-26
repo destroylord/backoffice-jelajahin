@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('category');
             $table->float('latitude', 10,6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->float('rating_avg');
             $table->tinyInteger('rating_count');
             $table->unsignedInteger('province_id');

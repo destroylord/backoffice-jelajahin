@@ -29,7 +29,7 @@ return new class extends Migration
             $table->tinyInteger('point_reward');
             $table->tinyInteger('xp_reward');
             $table->float('latitude', 10, 6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->boolean('is_free');
             $table->timestamps();
 

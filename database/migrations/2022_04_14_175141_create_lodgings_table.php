@@ -43,7 +43,7 @@ return new class extends Migration
             $table->integer('rating_count')->nullable();
             $table->text('address');
             $table->float('latitude', 10, 6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
 
             $table->foreign('uuid_keeper')
                     ->references('uuid_keeper')
