@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('gallery_tours', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->binary('image');
-            $table->uuid('uuid_tours');
+            $table->string('image', 100);
+            $table->uuid('uuid_tour');
 
 
-            $table->foreign('uuid_tours')
+            $table->foreign('uuid_tour')
                     ->references('uuid_tour')
                     ->on('tours')
                     ->cascadeOnUpdate()

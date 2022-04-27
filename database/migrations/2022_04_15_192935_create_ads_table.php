@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('action_type', 20);
             $table->text('action_value');
             $table->text('action_param');
-            $table->binary('image');
+            $table->string('image', 100);
             // Foreign key provincies and city
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');

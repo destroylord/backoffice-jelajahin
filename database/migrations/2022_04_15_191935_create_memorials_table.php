@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('address');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->float('latitude', 10, 6);
             $table->float('longtitude', 10, 6);
             $table->tinyInteger('xp_point');

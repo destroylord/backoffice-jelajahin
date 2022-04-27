@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('origin', 50);
-            $table->binary('image');
+            $table->string('image', 100);
 
             // Foreign key provincies and city
             $table->unsignedInteger('province_id');
