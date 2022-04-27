@@ -1,22 +1,23 @@
 <div class="card-body">
     <div class="form-group">
         <label for="">Name</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="" value="{{ $hotel->name ?? old('name') }}" name="name" placeholder="Enter name...">
+        <input type="text" class="form-control @error('name') is-invalid @enderror" id="" value="{{ $menuRestaurant->name ?? old('name') }}" name="name" placeholder="Enter name...">
         @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
-        <textarea name="description" id="" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{$hotel->description ?? old('description')}}</textarea>
+        <label>Description</label>
+        <textarea name="description" id="" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{$menuRestaurant->description ?? old('description')}}</textarea>
         @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
         <label for="">Restaurant</label>
-        <select name="uuid_restaurant" id="" class="form-control">
+        <select name="uuid_restaurants" id="" class="form-control">
             @foreach ($restaurants as $restaurant)
-                <option value="{{$restaurant->uuid_menu}}">{{$restaurant->name}}</option>
+                <option value="{{$restaurant->uuid_restaurant}}">{{$restaurant->name}}</option>
             @endforeach
         </select>
         @error('uuid_restaurant')
@@ -25,21 +26,21 @@
     </div>
     <div class="form-group">
         <label for="">Photo</label>
-        <input type="file" class="form-control @error('image') is-invalid @enderror" id="" value="{{ $hotel->image ?? old('image') }}" name="image">
+        <input type="file" class="form-control @error('image') is-invalid @enderror" id="" value="{{ $menuRestaurant->image ?? old('image') }}" name="image">
         @error('image')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
         <label for="">Price</label>
-        <input type="number" class="form-control @error('price') is-invalid @enderror" id="" value="{{ $hotel->price ?? old('price') }}" name="price">
+        <input type="number" class="form-control @error('price') is-invalid @enderror" id="" value="{{ $menuRestaurant->price ?? old('price') }}" name="price">
         @error('price')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
     <div class="form-group">
-        <label for="">Category</label>
-        <select name="category" id=""class="form-control @error('category') is-invalid @enderror">
+        <label>Category</label>
+        <select name="category" class="form-control @error('category') is-invalid @enderror">
             <option value="" readonly>Select Your Food Type</option>
             <option value="western">Western</option>
             <option value="asian">Asian</option>

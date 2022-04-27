@@ -2,7 +2,6 @@
 
 
 use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController};
-
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +21,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/restaurant/{uuid_restaurant}/delete', [RestaurantController::class, 'destroy'])->name('restaurant.destroy');
 
     // Menu-Restaurant
-    Route::resource('/menu-restaurant', MenuRestaurantController::class);
+    Route::resource('/menu-restaurant', MenuRestaurantController::class)->except('destroy');
+    Route::get('/menu-restaurant/{uuid_menu}/delete', [MenuRestaurantController::class, 'destroy'])->name('menu-restaurant.destroy');
 
 });
 

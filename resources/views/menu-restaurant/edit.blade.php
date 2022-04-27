@@ -27,10 +27,10 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Form Information</h6>
             </div>
-            <form action="{{ route('hotel.update', $hotel->uuid_lodging)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('menu-restaurant.update', $menuRestaurant->uuid_menu)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                @include('hotel.partials.form-control')
+                @include('menu-restaurant.partials.form-control')
             </form>
         </div>
     </div>

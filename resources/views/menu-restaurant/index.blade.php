@@ -20,8 +20,8 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    <th>Price</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -30,26 +30,26 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    <th>Price</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
-                    {{-- @foreach ($hotels as $hotel)
+                    @foreach ($menuRestaurant as $mr)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$hotel->name}}</td>
-                            <td>{{$hotel->description}}</td>
-                            <td>{{$hotel->phone}}</td>
-                            <td>{{$hotel->email}}</td>
+                            <td>{{$mr->name}}</td>
+                            <td>{{$mr->description}}</td>
+                            <td>{{$mr->price}}</td>
+                            <td>{{$mr->category}}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
-                                <a href="{{route('hotel.edit', $hotel->uuid_lodging)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
-                                <a href="/hotel/{{$hotel->uuid_lodging}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
+                                {{-- <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a> --}}
+                                <a href="{{route('menu-restaurant.edit', $mr->uuid_menu)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
+                                <a href="/menu-restaurant/{{$mr->uuid_menu}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
             </div>

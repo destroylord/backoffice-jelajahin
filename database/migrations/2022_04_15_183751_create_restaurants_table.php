@@ -45,7 +45,7 @@ return new class extends Migration
             $table->time('end_time');
 
             $table->float('latitude', 10, 6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->timestamps();
 
 

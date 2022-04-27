@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MenuRestaurant;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MenuRestaurantController extends Controller
 {
@@ -15,7 +16,8 @@ class MenuRestaurantController extends Controller
      */
     public function index()
     {
-        return view('menu-restaurant.index');
+        $menuRestaurant = MenuRestaurant::orderBy('created_at', 'DESC')->get();
+        return view('menu-restaurant.index', compact('menuRestaurant'));
     }
 
     /**
@@ -26,7 +28,6 @@ class MenuRestaurantController extends Controller
     public function create()
     {
         $restaurants = Restaurant::all();
-        dd($restaurants);
         return view('menu-restaurant.create', compact('restaurants'));
     }
 
@@ -69,7 +70,8 @@ class MenuRestaurantController extends Controller
      */
     public function edit(MenuRestaurant $menuRestaurant)
     {
-        //
+        $restaurants = Restaurant::all();
+        return view('menu-restaurant.edit', compact('menuRestaurant','restaurants'));
     }
 
     /**
@@ -81,7 +83,21 @@ class MenuRestaurantController extends Controller
      */
     public function update(Request $request, MenuRestaurant $menuRestaurant)
     {
-        //
+        $attr = $request->all();
+        $file = $request->file('image');
+
+        if ($request->hasFile('image')) {
+            Storage::delete($menuRestaurant->image);
+            $image = $file->store('menu-restaurant');
+        } else {
+            $image = $menuRestaurant->image;
+        }
+
+        $attr['image'] = $image;
+
+        $menuRestaurant->update($attr);
+
+        return back();
     }
 
     /**
@@ -90,8 +106,12 @@ class MenuRestaurantController extends Controller
      * @param  \App\Models\MenuRestaurant  $menuRestaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuRestaurant $menuRestaurant)
+    public function destroy($id)
     {
-        //
+        $hotelId = MenuRestaurant::findOrFail($id);
+        Storage::delete($hotelId->image);
+        $hotelId->delete();
+
+        return back();
     }
 }
