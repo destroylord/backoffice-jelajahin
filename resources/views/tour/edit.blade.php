@@ -27,9 +27,10 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Form Information</h6>
             </div>
-            <form action="{{ route('tour.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('tour.update', $tour->uuid_tour)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @include('hotel.partials.form-control', ['submit' => 'Submit'])
+                @method('PUT')
+                @include('tour.partials.form-control')
             </form>
         </div>
     </div>

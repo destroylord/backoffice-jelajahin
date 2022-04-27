@@ -35,6 +35,19 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Hotel</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategoryEvents" aria-expanded="true"
+          aria-controls="collapseCategoryEvents">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Category Event</span>
+        </a>
+        <div id="collapseCategoryEvents" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Category Events</h6>
+            <a class="collapse-item" href="{{route('categoryEvent.index')}}">Add Category Events</a>
+          </div>
+        </div>
+      </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
 </ul>

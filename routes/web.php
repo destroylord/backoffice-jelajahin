@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/category-events', [CategoryEventController::class, 'index'])->name('categoryEvent.index');
+    Route::post('/category-events', [CategoryEventController::class, 'create'])->name('categoryEvent.create');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
