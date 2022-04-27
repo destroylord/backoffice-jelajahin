@@ -40,6 +40,7 @@
               </tr>
             </thead>
             <tbody>
+
               @foreach ($data as $key=>$value) 
               <tr>
                 <td>{{ $value->id }}</td>
@@ -55,6 +56,7 @@
                 </td>
               </tr>
               @endforeach
+
             </tbody>
           </table>
         </div>

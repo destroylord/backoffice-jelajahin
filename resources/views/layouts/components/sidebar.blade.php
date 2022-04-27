@@ -16,9 +16,14 @@
       Features
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('restaurant.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Restaurant</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('menu-restaurant.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Menu Restaurant</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.html">
@@ -45,4 +50,4 @@
       </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
-  </ul>
+</ul>

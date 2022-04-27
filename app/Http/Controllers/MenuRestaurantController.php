@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HotelRequest;
-use App\Models\Hotel;
+use App\Models\MenuRestaurant;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class HotelController extends Controller
+class MenuRestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all();
-        return view('hotel.index', compact('hotels'));
+        $menuRestaurant = MenuRestaurant::orderBy('created_at', 'DESC')->get();
+        return view('menu-restaurant.index', compact('menuRestaurant'));
     }
 
     /**
@@ -27,7 +27,8 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('hotel.create');
+        $restaurants = Restaurant::all();
+        return view('menu-restaurant.create', compact('restaurants'));
     }
 
     /**
@@ -36,27 +37,27 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HotelRequest $request)
+    public function store(Request $request)
     {
         $file = $request->file('image');
 
         $attr = $request->all();
         $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
-        $path = $file->storeAs('hotel', $fileName);
+        $path = $file->storeAs('menu-restaurant', $fileName);
 
         $attr['image'] = $path;
 
-        Hotel::create($attr);
+        MenuRestaurant::create($attr);
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\MenuRestaurant  $menuRestaurant
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MenuRestaurant $menuRestaurant)
     {
         //
     }
@@ -64,55 +65,53 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\MenuRestaurant  $menuRestaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(MenuRestaurant $menuRestaurant)
     {
-        $hotel = Hotel::findOrFail($id);
-        return view('hotel.edit', compact('hotel'));
+        $restaurants = Restaurant::all();
+        return view('menu-restaurant.edit', compact('menuRestaurant','restaurants'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\MenuRestaurant  $menuRestaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(HotelRequest $request, Hotel $hotel)
+    public function update(Request $request, MenuRestaurant $menuRestaurant)
     {
         $attr = $request->all();
         $file = $request->file('image');
 
         if ($request->hasFile('image')) {
-            Storage::delete($hotel->image);
-            $image = $file->store('hotel');
+            Storage::delete($menuRestaurant->image);
+            $image = $file->store('menu-restaurant');
         } else {
-            $image = $hotel->image;
+            $image = $menuRestaurant->image;
         }
 
         $attr['image'] = $image;
 
-        $hotel->update($attr);
+        $menuRestaurant->update($attr);
 
         return back();
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\MenuRestaurant  $menuRestaurant
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $hotelId = Hotel::findOrFail($id);
+        $hotelId = MenuRestaurant::findOrFail($id);
         Storage::delete($hotelId->image);
         $hotelId->delete();
 
         return back();
     }
 }
-

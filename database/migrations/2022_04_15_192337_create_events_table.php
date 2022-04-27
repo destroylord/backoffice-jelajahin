@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_event')->primary();
             $table->string('name');
             $table->text('description');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->text('address');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->tinyInteger('point_reward');
             $table->tinyInteger('xp_reward');
             $table->float('latitude', 10, 6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->boolean('is_free');
             $table->timestamps();
 
