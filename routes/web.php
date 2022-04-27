@@ -1,7 +1,8 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController};
+use App\Http\Controllers\{DashboardController, MenuRestaurantController, HotelController, ProfileController, RestaurantController, HiddenGemController};
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +24,11 @@ Route::group(['middleware' => 'auth'], function () {
     // Menu-Restaurant
     Route::resource('/menu-restaurant', MenuRestaurantController::class)->except('destroy');
     Route::get('/menu-restaurant/{uuid_menu}/delete', [MenuRestaurantController::class, 'destroy'])->name('menu-restaurant.destroy');
+
+    //HiddenGem
+    Route::resource('/hidden_gem', HiddenGemController::class)->except(['destroy']);
+    Route::get('/getcity/{id}', [HiddenGemController::class, 'getCity'])->name('hidden_gem.city');
+    Route::get('/hidden_gem/{id}/delete', [HiddenGemController::class, 'destroy'])->name('hidden_gem.destroy');
 
 });
 
