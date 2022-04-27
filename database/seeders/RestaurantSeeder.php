@@ -31,8 +31,8 @@ class RestaurantSeeder extends Seeder
             'image'         => 'helloworld.png',
             'province_id'   => 6,
             'city_id'       => 1,
-            'start_time'    => date("h:i:s"),
-            'end_time'      => date("h:i:s"),
+            // 'start_time'    => date("h:i:s"),
+            // 'end_time'      => date("h:i:s"),
             'latitude'      => 51.5010967362789,
             'longitude'     => -0.09490694921556521
         ];

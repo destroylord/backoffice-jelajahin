@@ -46,7 +46,7 @@
                             <td>
                                 <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
                                 <a href="{{route('tour.edit', $tour->uuid_tour)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
-                                <a href="/tour/{{$hotel->uuid_tour}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
+                                <a href="/tour/{{$tour->uuid_tour}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

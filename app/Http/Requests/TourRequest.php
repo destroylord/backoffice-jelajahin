@@ -13,7 +13,7 @@ class TourRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,9 +24,9 @@ class TourRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                      => 'required|min:20',
+            'name'                      => 'required|min:4',
             'description'               => 'required|min:10',
-            'image'                     => 'required|mime:jpg,png',
+            'image'                     => 'required|mimes:jpg,png,jpeg',
             'ticket_price_weekday'      => 'required',
             'ticket_price_weekend'      => 'required',
             'category'                  => 'required',
