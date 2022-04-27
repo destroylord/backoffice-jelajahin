@@ -27,9 +27,9 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Form Information</h6>
             </div>
-            <form action="{{ route('tour.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('tour.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                 @csrf
-                @include('hotel.partials.form-control', ['submit' => 'Submit'])
+                @include('tour.partials.form-control', ['submit' => 'Submit'])
             </form>
         </div>
     </div>
@@ -83,6 +83,28 @@
             var maintext = "GoMaps." + lat + "/" + long +",16z";
             var siteurl = maintext.trim()
             $('.generated-url').text(siteurl).attr("href", uri);
+        });
+
+        // Get City
+        $('select[name="province_id"]').on('change', function(){
+
+        var province_id = $(this).val();
+
+        uri = "{{url('/getcity/')}}/"+province_id;
+
+        $.ajax({
+            url : uri,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                $('select[name="city_id"]').empty();
+                $.each(data.data, function(key, value){
+                    // console.log(data);
+                    $('select[name="city_id"]').append('<option value="'+value.id+'">'+value.name+'</option>')
+
+                })
+            }
+        })
         });
     </script>
 @endpush

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TourRequest;
-use App\Models\Tour;
+use App\Models\{Tour, Province};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +22,8 @@ class TourController extends Controller
      */
     public function create()
     {
-        return view('tour.create');
+        $provinces = Province::all();
+        return view('tour.create', compact('provinces'));
     }
 
     /**
@@ -37,7 +38,7 @@ class TourController extends Controller
 
         $attr = $request->all();
         $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
-        $path = $file->storeAs('hotel', $fileName);
+        $path = $file->storeAs('tour', $fileName);
 
         $attr['image'] = $path;
 
@@ -62,10 +63,10 @@ class TourController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tour $tour)
     {
-        $hotel = Tour::findOrFail($id);
-        return view('tour.edit', compact('tour'));
+        $provinces = Province::all();
+        return view('tour.edit', compact('tour','provinces'));
     }
 
     /**

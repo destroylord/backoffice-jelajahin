@@ -7,6 +7,7 @@
         @enderror
     </div>
     <div class="form-group">
+        <label for="">Description</label>
         <textarea name="description" id="" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{$tour->description ?? old('description')}}</textarea>
         @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -31,8 +32,8 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Longtitude</label>
-                <input type="number" class="form-control" name="longtitude" value="{{$tour->longtitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
-                @error('longtitude')
+                <input type="number" class="form-control" name="longitude" value="{{$tour->longitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
+                @error('longitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -104,12 +105,34 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
-        <label for="">Category</label>
-        <input type="number" name="category" class="form-control @error('category') is-invalid @enderror" value="{{$tour->category ?? old('category') }}" placeholder="089xxxx">
-        @error('category')
-            <small class="text-danger">{{ $message }}</small>
-        @enderror
+        <label>Category</label>
+        <select name="category" class="form-control @error('category') is-invalid @enderror">
+            <option value="" readonly>Select Your Food Type</option>
+            <option value="western">Western</option>
+            <option value="asian">Asian</option>
+            <option value="thai">Thai</option>
+            <option value="vietnamese">Vietnamese</option>
+            <option value="padang">Padang</option>
+            <option value="arabic">Arabic</option>
+            <option value="chinese">Chinese</option>
+            <option value="italian">Italian</option>
+            <option value="international">International</option>
+            <option value="japanese">Japanese</option>
+            <option value="indonesian">Indonesian</option>
+            <option value="soups">Soups</option>
+            <option value="grills">Grills</option>
+            <option value="spicy">Spicy</option>
+            <option value="pizza">Pizza</option>
+            <option value="fast-food">Fast Food</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="sea-food">Sea Food</option>
+            <option value="non-halal">Non-Halal</option>
+        </select>
     </div>
+    @error('category')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
     <button type="submit" class="btn btn-primary w-100 mt-4">{{$submit ?? 'Update'}}</button>
 </div>

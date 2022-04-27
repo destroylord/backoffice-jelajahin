@@ -26,7 +26,7 @@
           <span>Menu Restaurant</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('tour.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Tour</span></a>
       </li>
@@ -44,7 +44,7 @@
         <div id="collapseCategoryEvents" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Category Events</h6>
-            <a class="collapse-item" href="{{route('categoryEvent.index')}}">Add Category Events</a>
+            {{-- <a class="collapse-item" href="{{route('categoryEvent.index')}}">Add Category Events</a> --}}
           </div>
         </div>
       </li>

@@ -85,5 +85,27 @@
             var siteurl = maintext.trim()
             $('.generated-url').text(siteurl).attr("href", uri);
         });
+
+        // Get City
+        $('select[name="province_id"]').on('change', function(){
+
+            var province_id = $(this).val();
+
+            uri = "{{url('/getcity/')}}/"+province_id;
+
+            $.ajax({
+                url : uri,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('select[name="city_id"]').empty();
+                    $.each(data.data, function(key, value){
+                        // console.log(data);
+                        $('select[name="city_id"]').append('<option value="'+value.id+'">'+value.name+'</option>')
+
+                    })
+                }
+            })
+        });
     </script>
 @endpush
