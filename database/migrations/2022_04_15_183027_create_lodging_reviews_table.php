@@ -23,17 +23,17 @@ return new class extends Migration
             $table->mediumInteger('rating_clean');
             $table->string('image', 100);
 
-            $table->uuid('uuid_users');
-            $table->uuid('uuid_lodgings');
+            $table->uuid('uuid_user');
+            $table->uuid('uuid_lodging');
             $table->timestamps();
 
-            $table->foreign('uuid_users')
+            $table->foreign('uuid_user')
                     ->references('uuid_user')
                     ->on('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 
-            $table->foreign('uuid_lodgings')
+            $table->foreign('uuid_lodging')
                     ->references('uuid_lodging')
                     ->on('lodgings')
                     ->cascadeOnUpdate()

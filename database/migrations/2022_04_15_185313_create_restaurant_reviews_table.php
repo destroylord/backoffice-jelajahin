@@ -22,17 +22,17 @@ return new class extends Migration
             $table->tinyInteger('rating_clean');
             $table->string('image', 100);
 
-            $table->uuid('uuid_users');
-            $table->uuid('uuid_restaurants');
+            $table->uuid('uuid_user');
+            $table->uuid('uuid_restaurant');
             $table->timestamps();
 
-            $table->foreign('uuid_users')
+            $table->foreign('uuid_user')
                     ->references('uuid_user')
                     ->on('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 
-            $table->foreign('uuid_restaurants')
+            $table->foreign('uuid_restaurant')
                     ->references('uuid_restaurant')
                     ->on('restaurants')
                     ->cascadeOnUpdate()

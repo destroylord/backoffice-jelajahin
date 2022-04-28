@@ -15,15 +15,17 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->uuid('uuid_menu')->primary();
-            $table->uuid('uuid_restaurants');
+            $table->uuid('uuid_restaurant');
             $table->string('name');
             $table->text('description');
-            $table->string('image', 100);
-            $table->tinyInteger('price');
+
+            $table->binary('image');
+            $table->integer('price');
+
             $table->string('category');
             $table->timestamps();
 
-            $table->foreign('uuid_restaurants')
+            $table->foreign('uuid_restaurant')
                     ->references('uuid_restaurant')
                     ->on('restaurants')
                     ->cascadeOnUpdate()

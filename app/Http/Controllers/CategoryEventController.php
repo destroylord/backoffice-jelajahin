@@ -9,7 +9,10 @@ class CategoryEventController extends Controller
 {
     public function index()
     {
-        return view("categoryEvent.index");
+
+        $data = CategoryEvent::all();
+        return view('categoryEvent.index' , compact('data'));
+
     }
 
     public function create(Request $request)
@@ -27,4 +30,16 @@ class CategoryEventController extends Controller
     {
         
     }
+
+    public function destroy($id)
+    {
+        /** $model = CategoryEvent::find();
+        $model->delete();
+        return redirect('category-event');
+        */
+        $data = CategoryEvent::find($id);
+        $data->delete();
+        return redirect('/category-events');
+    }
+
 }

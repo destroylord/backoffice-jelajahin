@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('room_size', 7);
             $table->tinyInteger('price');
             $table->string('image', 100);
-            $table->uuid('uuid_lodgings')->comment('this name column is penginapan');
+            $table->uuid('uuid_lodging')->comment('this name column is penginapan');
 
-            $table->foreign('uuid_lodgings')
+            $table->foreign('uuid_lodging')
                     ->references('uuid_lodging')
                     ->on('lodgings')
                     ->cascadeOnUpdate()

@@ -41,11 +41,8 @@ return new class extends Migration
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
 
-            $table->time('start_time');
-            $table->time('end_time');
-
             $table->float('latitude', 10, 6);
-            $table->float('longtitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->timestamps();
 
 

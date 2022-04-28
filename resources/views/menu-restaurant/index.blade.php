@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Tour', 'breadcumb' => 'Tour'])
+@extends('layouts.app', ['title' => 'Menu Restaurant', 'breadcumb' => 'Menu Restaurant'])
 
 @push('script')
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -10,8 +10,8 @@
         <div class="col-lg-12">
             <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Semua Data Wisata</h6>
-            <a href="{{ route('tour.create')}}" class="btn btn-primary"><i class="far fas fa-plus"></i> Add Wisata</a>
+            <h6 class="m-0 font-weight-bold text-primary">Semua Data Menu Restaurant</h6>
+            <a href="{{ route('menu-restaurant.create')}}" class="btn btn-primary"><i class="far fas fa-plus"></i> Add Hotel</a>
             </div>
             <div class="table-responsive p-3">
             <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -20,8 +20,8 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Harga Tiket Weekday</th>
-                    <th>Harga Tiket Weekend</th>
+                    <th>Price</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -30,23 +30,23 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Harga Tiket Weekday</th>
-                    <th>Harga Tiket Weekend</th>
+                    <th>Price</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($tours as $tour)
+                    @foreach ($menuRestaurant as $mr)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$tour->name}}</td>
-                            <td>{{$tour->description}}</td>
-                            <td>{{$tour->ticket_price_weekday}}</td>
-                            <td>{{$tour->ticket_price_weekend}}</td>
+                            <td>{{$mr->name}}</td>
+                            <td>{{$mr->description}}</td>
+                            <td>{{$mr->price}}</td>
+                            <td>{{$mr->category}}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
-                                <a href="{{route('tour.edit', $tour->uuid_tour)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
-                                <a href="/tour/{{$tour->uuid_tour}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
+                                {{-- <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a> --}}
+                                <a href="{{route('menu-restaurant.edit', $mr->uuid_menu)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
+                                <a href="/menu-restaurant/{{$mr->uuid_menu}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

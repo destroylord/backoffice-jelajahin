@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('gallery_lodgings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image', 100);
-            $table->uuid('uuid_lodgings');
+            $table->uuid('uuid_lodging');
             $table->timestamps();
 
-            $table->foreign('uuid_lodgings')
+            $table->foreign('uuid_lodging')
                     ->references('uuid_lodging')
                     ->on('lodgings')
                     ->cascadeOnUpdate()

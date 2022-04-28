@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('image', 100);
             $table->enum('is_cover', ['0', '1']);
 
-            $table->uuid('uuid_restaurants');
+            $table->uuid('uuid_restaurant');
             $table->timestamps();
 
-            $table->foreign('uuid_restaurants')
+            $table->foreign('uuid_restaurant')
                     ->references('uuid_restaurant')
                     ->on('restaurants')
                     ->cascadeOnUpdate()
