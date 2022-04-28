@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('address');
-            $table->binary('image');
+            $table->string('image', 100);
             $table->integer('xp_reward');
             $table->float('latitude', 10,6);
-            $table->float('longtitude', 10,6);
+            $table->float('longitude', 10,6);
 
             // Foreign key provincies and city
             $table->unsignedInteger('province_id');

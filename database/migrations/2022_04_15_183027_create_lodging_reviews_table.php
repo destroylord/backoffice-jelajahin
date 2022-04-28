@@ -17,21 +17,23 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->smallInteger('rating_service');
-            $table->smallInteger('rating_friendly');
-            $table->smallInteger('rating_clean');
-            $table->binary('image');
-            $table->uuid('uuid_users');
-            $table->uuid('uuid_lodgings');
+
+            $table->mediumInteger('rating_service');
+            $table->mediumInteger('rating_friendly');
+            $table->mediumInteger('rating_clean');
+            $table->string('image', 100);
+
+            $table->uuid('uuid_user');
+            $table->uuid('uuid_lodging');
             $table->timestamps();
 
-            $table->foreign('uuid_users')
+            $table->foreign('uuid_user')
                     ->references('uuid_user')
                     ->on('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 
-            $table->foreign('uuid_lodgings')
+            $table->foreign('uuid_lodging')
                     ->references('uuid_lodging')
                     ->on('lodgings')
                     ->cascadeOnUpdate()

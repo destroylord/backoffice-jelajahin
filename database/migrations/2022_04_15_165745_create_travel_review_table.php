@@ -18,18 +18,18 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->tinyInteger('rating');
-            $table->binary('image');
-            $table->uuid('uuid_users');
-            $table->uuid('uuid_tours');
+            $table->string('image', 100);
+            $table->uuid('uuid_user');
+            $table->uuid('uuid_tour');
 
 
-            $table->foreign('uuid_users')
+            $table->foreign('uuid_user')
                     ->references('uuid_user')
                     ->on('users')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 
-            $table->foreign('uuid_tours')
+            $table->foreign('uuid_tour')
                     ->references('uuid_tour')
                     ->on('tours')
                     ->cascadeOnUpdate()

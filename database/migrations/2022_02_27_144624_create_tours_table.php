@@ -17,17 +17,18 @@ return new class extends Migration
             $table->uuid('uuid_tour')->primary();
             $table->string('name', 100);
             $table->text('description');
-            $table->binary('image');
-            $table->smallInteger('ticket_price_weekday');
+            $table->string('image', 100);
+            $table->integer('ticket_price_weekday');
             $table->text('address');
             $table->string('category');
             $table->float('latitude', 10,6);
-            $table->float('longtitude', 10, 6);
-            $table->float('rating_avg');
-            $table->tinyInteger('rating_count');
+            $table->float('longitude', 10, 6);
+            $table->float('rating_avg')->nullable();
+            $table->tinyInteger('rating_count')->nullable();
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
             $table->timestamps($precision = 0);
+            $table->integer('ticket_price_weekend');
 
 
             $table->foreign('province_id')
