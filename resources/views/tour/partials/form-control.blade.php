@@ -23,7 +23,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Latitude</label>
-                <input type="number" name="latitude" value="{{$tour->latitude ?? ''}}" class="form-control" placeholder="Latitude" id="latitude" readonly>
+                <input type="number" name="latitude" value="{{$tour->latitude ?? ''}}" class="form-control" placeholder="Latitude" id="latitude">
                 @error('latitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -32,7 +32,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Longtitude</label>
-                <input type="number" class="form-control" name="longitude" value="{{$tour->longitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
+                <input type="number" class="form-control" name="longitude" value="{{$tour->longitude ?? ''}}" placeholder="Longtitude" id="longtitude">
                 @error('longitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
