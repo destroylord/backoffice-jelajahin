@@ -49,9 +49,11 @@ class HiddenGemController extends Controller
      */
     public function store(HiddenGemRequest $request)
     {
+
         $file = $request->file('image');
 
         $attr = $request->all();
+
         $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
         $path = $file->storeAs('hidden_gem', $fileName);
 
@@ -59,7 +61,6 @@ class HiddenGemController extends Controller
 
         HiddenGem::create($attr);
         return back();
-
 
     }
 
@@ -100,7 +101,7 @@ class HiddenGemController extends Controller
 
         if ($request->hasFile('image')) {
             Storage::delete($hidden_gem->image);
-            $image = $file->store('restaurant');
+            $image = $file->store('hidden_gem');
         } else {
             $image = $hidden_gem->image;
         }

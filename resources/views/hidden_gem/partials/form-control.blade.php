@@ -7,14 +7,29 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
+
+        <div class="form-group">
+            <label>Photo</label>
+                <input type="file" accept="image/*" name="image" class="form-control @error('image') is-invalid @enderror" value="{{$hidden_gem->image ?? old('image')}}">
+                @error('image')
+                   <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+        </div>
+        <div class="form-group">
+            <label for="">XP Reward</label>
+            <input type="number" class="form-control @error('xp_reward') is-invalid @enderror" value="{{ $hidden_gem->xp_reward ?? old('xp_reward') }}" name="xp_reward" id="">
+            @error('xp_reward')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
         <div class="form-group">
             <label for="">Description</label>
             <textarea name="description" id="" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{ $hidden_gem->description ?? old('description') }}</textarea>
             @error('description')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-        </div>               
-    </div>               
+        </div>
+    </div>
 </div>
 <div class="row mb-4">
 <div class="col-lg-12">
@@ -67,9 +82,9 @@
                 @enderror
             </div>
             <div class="col-lg-6">
-                <label>Longtitude</label>
-                <input type="number" class="form-control @error('longtitude') is-invalid @enderror" name="longtitude" value="{{$hidden_gem->longtitude ?? old('longtitude')}}" placeholder="Longtitude" id="longtitude" readonly>
-                @error('longtitude')
+                <label>Longitude</label>
+                <input type="number" class="form-control @error('longitude') is-invalid @enderror" name="longitude" value="{{$hidden_gem->longitude ?? old('longitude')}}" placeholder="Longitude" id="longtitude" readonly>
+                @error('longitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

@@ -13,7 +13,7 @@ class HiddenGemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class HiddenGemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => 'required',
+            'description'   => 'required',
+            'address'       => 'required',
+            'image'         => 'required|mimes:jpg,jpeg,png',
+            'xp_reward'     => 'required',
+            'latitude'      => 'required',
+            'longitude'     => 'required',
+            'province_id'   => 'required',
+            'ciry_id'       => 'required'
         ];
     }
 }

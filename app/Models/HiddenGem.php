@@ -11,13 +11,6 @@ class HiddenGem extends Model
 
     protected $guarded = [];
 
-
-    protected $primaryKey = 'id';
-
-    public $incrementing = true;
-
-    protected $keyType = 'string';
-
     public function province()
     {
         return $this->belongsTo(Province::class);
