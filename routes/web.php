@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController};
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, ActivityController};
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,6 +30,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/tour', TourController::class);
     Route::get('/getcity/{id}', [RestaurantController::class, 'getCity'])->name('restaurant.city');
     Route::get('/tour/{uuid_tour}/delete', [TourController::class, 'destroy'])->name('tour.destroy');
+
+    //Activity
+    Route::resource('/activity', ActivityController::class)->except(['destroy']);
+    Route::get('/getcity/{id}', [ActivityController::class, 'getCity'])->name('activity.city');
+    Route::get('/activity/{uuid_activity}/delete', [ActivityController::class, 'destroy'])->name('activity.destroy');
 });
 
 require __DIR__.'/auth.php';
