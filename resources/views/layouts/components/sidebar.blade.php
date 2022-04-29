@@ -42,6 +42,11 @@
           <i class="fas fa-gem"></i>
           <span>Hidden Gem</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('typical_food_drink.index')}}">
+          <i class="fas fa-gem"></i>
+          <span>Typical Food & Drink</span></a>
+      </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
 </ul>

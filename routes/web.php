@@ -2,7 +2,7 @@
 
 
 
-use App\Http\Controllers\{DashboardController, MenuRestaurantController, HotelController, ProfileController, RestaurantController, HiddenGemController, TourController};
+use App\Http\Controllers\{DashboardController, MenuRestaurantController, HotelController, ProfileController, RestaurantController, HiddenGemController, TourController, TypicalFoodDrinkController};
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +39,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/tour', TourController::class);
     Route::get('/getcity/{id}', [RestaurantController::class, 'getCity'])->name('restaurant.city');
     Route::get('/tour/{uuid_tour}/delete', [TourController::class, 'destroy'])->name('tour.destroy');
+
+    //TypicalFoodDrink
+    Route::resource('/typical', TypicalFoodDrinkController::class)->except(['destroy']);
+    Route::get('/getcity/{id}', [TypicalFoodDrinkController::class, 'getCity'])->name('typical_food_drink.city');
+    Route::get('/typical/{uuid_typical}/delete', [TypicalFoodDrinkController::class, 'destroy'])->name('typical_food_drink.destroy');
 
 });
 
