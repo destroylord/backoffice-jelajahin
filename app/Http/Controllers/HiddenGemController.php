@@ -47,8 +47,9 @@ class HiddenGemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HiddenGemRequest $request)
+    public function store(Request $request)
     {
+
 
         $file = $request->file('image');
 
@@ -60,7 +61,7 @@ class HiddenGemController extends Controller
         $attr['image'] = $path;
 
         HiddenGem::create($attr);
-        return back();
+        return redirect()->route('hidden_gem.index');
 
     }
 

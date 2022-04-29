@@ -20,7 +20,7 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Phone</th>
+                    <th>XP Reward</th>
                     <th>Action</th>
                 </tr>
                 </thead>

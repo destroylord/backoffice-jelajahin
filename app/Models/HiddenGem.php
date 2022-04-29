@@ -9,6 +9,8 @@ class HiddenGem extends Model
 {
     use HasFactory;
 
+    protected $table = 'hidden_gems';
+
     protected $guarded = [];
 
     public function province()

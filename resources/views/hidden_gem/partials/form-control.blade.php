@@ -2,7 +2,7 @@
     <div class="col-lg-7">
         <div class="form-group">
             <label for="">Name Hidden Gem</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $hidden_gem->name ?? old('name') }}" name="name" id="" aria-describedby="" placeholder="Enter Name Hidden Gem">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $hidden_gem->name ?? old('name') }}" name="name" id="" placeholder="Enter Name Hidden Gem">
             @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
