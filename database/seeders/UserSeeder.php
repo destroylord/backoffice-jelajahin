@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             [
                 'uuid_user' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
                 'name' => 'Dafrin',
-                'email' => 'dafrin@jelajahin.com',
+                'email' => 'dafrin@exploria.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('password'), // password
                 'remember_token' => Str::random(10),
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             [
                 'uuid_user' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
                 'name' => 'Ibnu',
-                'email' => 'ibnu@jelajahin.com',
+                'email' => 'ibnu@exploria.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('password'), // password
                 'remember_token' => Str::random(10),

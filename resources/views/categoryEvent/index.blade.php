@@ -40,31 +40,23 @@
               </tr>
             </thead>
             <tbody>
+
+              @foreach ($data as $key=>$value) 
               <tr>
-                <td><a href=""></a></td>
-                <td>Udin Wayang</td>
-                <td>Nasi Padang</td>
-                <td><span class="badge badge-success">Delivered</span></td>
+                <td>{{ $value->id }}</td>
+                <td>{{ $value->name }}</td>
+                <td>{{ $value->created_at }}</td>
+                <td><span class="badge badge-success">{{ $value->updated_at }}</span></td>
                 <td>
-                  <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                  <form action="/category-events"></form>
-                  <a href="#" class="btn btn-sm btn-primary">Delete</a>
+                  <form action="{{ url('category-events' .$value->id) }}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-danger btn-sm" value="DELETE">Delete</button>
+                  </form>
                 </td>
               </tr>
-              <tr>
-                <td><a href="#">RA5324</a></td>
-                <td>Jaenab Bajigur</td>
-                <td>Gundam 90' Edition</td>
-                <td><span class="badge badge-warning">Shipping</span></td>
-                <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-              </tr>
-              <tr>
-                <td><a href="#">RA8568</a></td>
-                <td>Rivat Mahesa</td>
-                <td>Oblong T-Shirt</td>
-                <td><span class="badge badge-danger">Pending</span></td>
-                <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-              </tr>
+              @endforeach
+
             </tbody>
           </table>
         </div>

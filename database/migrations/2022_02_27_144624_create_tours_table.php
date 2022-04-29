@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->string('image', 100);
-            $table->smallInteger('ticket_price_weekday');
+            $table->integer('ticket_price_weekday');
             $table->text('address');
             $table->string('category');
             $table->float('latitude', 10,6);
             $table->float('longitude', 10, 6);
-            $table->float('rating_avg');
-            $table->tinyInteger('rating_count');
+            $table->float('rating_avg')->nullable();
+            $table->tinyInteger('rating_count')->nullable();
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
             $table->timestamps($precision = 0);
