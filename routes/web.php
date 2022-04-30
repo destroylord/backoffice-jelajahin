@@ -41,9 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tour/{uuid_tour}/delete', [TourController::class, 'destroy'])->name('tour.destroy');
 
     //TypicalFoodDrink
-    Route::resource('/typical', TypicalFoodDrinkController::class)->except(['destroy']);
+    Route::resource('/typical_food_drink', TypicalFoodDrinkController::class)->except(['destroy']);
     Route::get('/getcity/{id}', [TypicalFoodDrinkController::class, 'getCity'])->name('typical_food_drink.city');
-    Route::get('/typical/{uuid_typical}/delete', [TypicalFoodDrinkController::class, 'destroy'])->name('typical_food_drink.destroy');
+    Route::get('/typical_food_drink/{uuid_typical}/delete', [TypicalFoodDrinkController::class, 'destroy'])->name('typical_food_drink.destroy');
 
 });
 
