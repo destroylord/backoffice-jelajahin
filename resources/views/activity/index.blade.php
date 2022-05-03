@@ -34,12 +34,12 @@
                 </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($activitys as $activity)
+                    @foreach ($activity as $activity)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$restaurant->name}}</td>
-                            <td>{{$restaurant->description}}</td>
-                            <td>{{$restaurant->phone}}</td>
+                            <td>{{$activity->name}}</td>
+                            <td>{{$activity->description}}</td>
+                            <td>{{$activity->address}}</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
                                 <a href="{{route('activity.edit', $activity->uuid_activity)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>

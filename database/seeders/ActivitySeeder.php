@@ -15,14 +15,14 @@ class ActivitySeeder extends Seeder
      */
     public function run()
     {
-        /**$activity = [
+        $activity = [
             'uuid_activity' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
             'name'          => 'Delman',
             'description'   => 'Delman nya seru',
             'address'       => 'Alun Alun Bondowoso',
             'price_min'     => 1000,
             'price_max'     => 5000,
-            'food_type'         => 1,
+            'category'      => 1,
             'image'         => 'delman.png',
             'province_id'   => 6,
             'city_id'       => 1,
@@ -32,6 +32,6 @@ class ActivitySeeder extends Seeder
             'longitude'     => -0.09490694921556521
         ];
 
-        DB::table('activitys')->insert($activity);*/
+        DB::table('activity')->insert($activity);
     }
 }

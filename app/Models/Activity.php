@@ -12,6 +12,7 @@ class Activity extends Model
 
     protected $guarded = [];
 
+    public $table = "activity";
 
     protected $primaryKey = 'uuid_activity';
 
