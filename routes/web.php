@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, ActivityController};
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, ActivityController, MenuTypicalController};
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,6 +35,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/activity', ActivityController::class)->except(['destroy']);
     Route::get('/getcity/{id}', [ActivityController::class, 'getCity'])->name('activity.city');
     Route::get('/activity/{uuid_activity}/delete', [ActivityController::class, 'destroy'])->name('activity.destroy');
+
+    //Menu_Typical
+    Route::resource('/menu_typical', MenuTypicalController::class)->except(['destroy']);
+    Route::get('/getcity/{id}', [MenuTypicalController::class, 'getCity'])->name('menu_typical.city');
+    Route::get('/menu_typical/{uuid_typical}/delete', [MenuTypicalController::class, 'destroy'])->name('meu_typical.destroy');
 });
 
 require __DIR__.'/auth.php';
