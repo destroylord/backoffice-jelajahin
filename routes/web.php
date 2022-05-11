@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, ActivityController, MenuTypicalController, HiddenGemController};
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, MenuTypicalController};
 
 use Illuminate\Support\Facades\Route;
 
