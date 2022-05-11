@@ -17,7 +17,7 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('restaurant.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-utensils"></i>
           <span>Restaurant</span></a>
       </li>
       <li class="nav-item">
@@ -31,8 +31,10 @@
           <span>Menu Typical</span></a>
       </li>
       <li class="nav-item">
+
         <a class="nav-link" href="{{ route('tour.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-map-marked-alt"></i>
+
           <span>Tour</span></a>
       </li>
       <li class="nav-item">
@@ -42,21 +44,13 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('hotel.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-hotel"></i>
           <span>Hotel</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategoryEvents" aria-expanded="true"
-          aria-controls="collapseCategoryEvents">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Category Event</span>
-        </a>
-        <div id="collapseCategoryEvents" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Events</h6>
-            {{-- <a class="collapse-item" href="{{route('categoryEvent.index')}}">Add Category Events</a> --}}
-          </div>
-        </div>
+        <a class="nav-link" href="{{ route('hidden_gem.index')}}">
+          <i class="fas fa-gem"></i>
+          <span>Hidden Gem</span></a>
       </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
