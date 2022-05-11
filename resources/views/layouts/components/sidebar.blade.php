@@ -26,11 +26,21 @@
           <span>Menu Restaurant</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('menu_typical.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Menu Typical</span></a>
+      </li>
+      <li class="nav-item">
 
         <a class="nav-link" href="{{ route('tour.index')}}">
           <i class="fas fa-map-marked-alt"></i>
 
           <span>Tour</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('activity.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Activity</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('hotel.index')}}">
