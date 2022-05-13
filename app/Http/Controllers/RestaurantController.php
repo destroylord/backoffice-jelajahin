@@ -60,7 +60,6 @@ class RestaurantController extends Controller
         Restaurant::create($attr);
         return back();
 
-
     }
 
     /**

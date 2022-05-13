@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             ProvinceSeeder::class,
             CitySeeder::class,
             RestaurantSeeder::class,
+            TourSeeder::class,
+            MenuTypicalSeeder::class,
             UserSeeder::class
         ]);
     }

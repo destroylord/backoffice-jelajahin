@@ -25,11 +25,11 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Menu Restaurant</span></a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('menu_typical.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Menu Typical</span></a>
-      </li>
+      </li> --}}
       <li class="nav-item">
 
         <a class="nav-link" href="{{ route('tour.index')}}">
