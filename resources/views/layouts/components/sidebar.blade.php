@@ -3,7 +3,7 @@
       <div class="sidebar-brand-icon">
         {{-- <img src="img/logo/logo2.png"> --}}
       </div>
-      <div class="sidebar-brand-text mx-3">Jelajahin</div>
+      <div class="sidebar-brand-text mx-3">Exploria</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
@@ -51,6 +51,11 @@
         <a class="nav-link" href="{{ route('hidden_gem.index')}}">
           <i class="fas fa-gem"></i>
           <span>Hidden Gem</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('host.index')}}">
+          <i class="fas fa-gem"></i>
+          <span>Approval Host </span></a>
       </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>

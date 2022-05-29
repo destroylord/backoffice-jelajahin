@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController};
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController};
 
 // MenuTypicalController
 
@@ -50,6 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::resource('/menu_typical', MenuTypicalController::class)->except(['destroy']);
     // Route::get('/getcity/{id}', [MenuTypicalController::class, 'getCity'])->name('menu_typical.city');
     // Route::get('/menu_typical/{uuid_typical}/delete', [MenuTypicalController::class, 'destroy'])->name('meu_typical.destroy');
+
+    // Host
+    Route::get('/host', [HostController::class, 'index'])->name('host.index');
 });
 
 require __DIR__.'/auth.php';
