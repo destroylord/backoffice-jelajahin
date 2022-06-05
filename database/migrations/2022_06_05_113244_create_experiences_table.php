@@ -13,34 +13,36 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hosts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->uuid('uuid_host')->unique();
-            $table->string('full_name');
-            $table->string('headline');
+        Schema::create('experiences', function (Blueprint $table) {
+            $table->id();
+            $table->string('uuid_experience');
+            $table->string('name');
             $table->text('description');
-            $table->text('image');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->number('phone');
+            $table->string('category');
             $table->text('address');
+            $table->integer('price');
+            $table->integer('duration');
 
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
-
-            $table->string('verified_date')->nullable();
-
             $table->foreign('province_id')
-            ->references('id')
-            ->on('provincies')
-            ->cascadeOnUpdate()
-            ->cascadeOnDelete();
+                    ->references('id')
+                    ->on('provincies')
+                    ->cascadeOnUpdate()
+                    ->cascadeOnDelete();
 
             $table->foreign('city_id')
                     ->references('id')
                     ->on('cities')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
+
+            $table->float('rating_avg');
+            $table->integer('rating_count');
+            $table->double('latitude');
+            $table->double('longtitude');
+            $table->tinyInteger('accepted');
+            $table->string('uuid_host');
 
             $table->timestamps();
         });
@@ -53,6 +55,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hosts');
+        Schema::dropIfExists('experiences');
     }
 };

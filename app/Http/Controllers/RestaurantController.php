@@ -57,6 +57,8 @@ class RestaurantController extends Controller
 
         $attr['image'] = $path;
 
+        dd($attr);
+
         Restaurant::create($attr);
         return back();
 
