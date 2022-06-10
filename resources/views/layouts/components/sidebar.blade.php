@@ -57,6 +57,11 @@
           <i class="fas fa-gem"></i>
           <span>Approval Host </span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('experience.index')}}">
+          <i class="fas fa-gem"></i>
+          <span>Approval Experience </span></a>
+      </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
 </ul>

@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('full_name');
             $table->string('headline');
             $table->text('description');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->number('phone');
+            $table->string('phone');
             $table->text('address');
+            $table->integer('status');
 
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');

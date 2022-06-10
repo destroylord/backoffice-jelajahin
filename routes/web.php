@@ -53,6 +53,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Host
     Route::get('/host', [HostController::class, 'index'])->name('host.index');
+    Route::get('/host/acc/{id}', [HostController::class, 'updateStatusAcc'])
+                ->name('host.update.acc');
+    Route::get('/host/reject/{id}', [HostController::class, 'updateStatusReject'])
+                ->name('host.update.reject');
+
+    // Experiences
+    // Route::get('/experience', );
 });
 
 require __DIR__.'/auth.php';
