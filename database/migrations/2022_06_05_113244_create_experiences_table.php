@@ -40,7 +40,7 @@ return new class extends Migration
             $table->float('rating_avg');
             $table->integer('rating_count');
             $table->double('latitude');
-            $table->double('longtitude');
+            $table->double('longitude');
             $table->tinyInteger('accepted');
             $table->string('uuid_host');
 

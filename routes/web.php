@@ -1,8 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController};
-
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController, ExperienceController};
 // MenuTypicalController
 
 use Illuminate\Support\Facades\Route;
@@ -53,13 +52,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Host
     Route::get('/host', [HostController::class, 'index'])->name('host.index');
+
     Route::get('/host/acc/{id}', [HostController::class, 'updateStatusAcc'])
                 ->name('host.update.acc');
     Route::get('/host/reject/{id}', [HostController::class, 'updateStatusReject'])
                 ->name('host.update.reject');
 
     // Experiences
-    // Route::get('/experience', );
+    Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
+
+    Route::get('/experience/acc/{id}', [ExperienceController::class, 'updateStatusAcc'])
+                ->name('experience.update.acc');
+    Route::get('/experience/reject/{id}', [ExperienceController::class, 'updateStatusReject'])
+                ->name('experience.update.reject');
 });
 
 require __DIR__.'/auth.php';

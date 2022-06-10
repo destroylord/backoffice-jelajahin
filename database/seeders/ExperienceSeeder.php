@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Experience;
 use Illuminate\Database\Seeder;
 
 class ExperienceSeeder extends Seeder
@@ -14,6 +14,6 @@ class ExperienceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Experience::factory()->count(5)->create();
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreExperienceRequest;
-use App\Http\Requests\UpdateExperienceRequest;
 use App\Models\Experience;
 
 class ExperienceController extends Controller
@@ -15,72 +13,34 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        //
+
+        $experiences = Experience::all();
+        return view('experience.index', compact('experiences'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function updateStatusAcc($id)
     {
-        //
+        $findExperience = Experience::find($id);
+
+        $findExperience->update([
+            'accepted' => 1
+        ]);
+
+
+        return back();
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreExperienceRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreExperienceRequest $request)
+    public function updateStatusReject($id)
     {
-        //
-    }
+        $findExperience = Experience::find($id);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Experience $experience)
-    {
-        //
-    }
+        $findExperience->update([
+            'accepted' => 0
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Experience $experience)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateExperienceRequest  $request
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateExperienceRequest $request, Experience $experience)
-    {
-        //
-    }
+        return back();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Experience $experience)
-    {
-        //
     }
 }

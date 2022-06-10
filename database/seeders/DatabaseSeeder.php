@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Host;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
             RestaurantSeeder::class,
             TourSeeder::class,
             MenuTypicalSeeder::class,
+            HostSeeder::class,
+            ExperienceSeeder::class,
             UserSeeder::class
         ]);
     }

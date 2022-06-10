@@ -30,7 +30,7 @@ class HostFactory extends Factory
             'email'     => $this->faker->email(),
             'password'  => Hash::make('passwo'),
             'phone'     => $this->faker->phoneNumber,
-            'Address'   => 'Bondowoso',
+            'address'   => 'Bondowoso',
             'province_id'  => 6,
             'city_id'   => 1,
             'verified_date' => null,
