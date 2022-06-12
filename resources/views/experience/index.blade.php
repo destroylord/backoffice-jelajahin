@@ -42,8 +42,7 @@
 
                                     }elseif ($experience->accepted == 2) { @endphp
 
-                                            <a href="{{ route('experience.update.acc', $experience->id )}}" class="btn btn-success btn-sm" name="isAcc">Terima</a>
-                                            <a href="{{ route('experience.update.reject', $experience->id )}}" onclick="return confirm('Apakah Anda yakin ingin?')" name="isReject" class="btn btn-danger btn-sm">Tolak</a>
+                                        <a href="{{ route('experience.review', $experience->id)}}" class="btn btn-info"><i class="fa fas fa-eye"></i> Review</a>
 
                                     @php
                                     }else{
@@ -56,6 +55,8 @@
                         </a>
                     @endforeach
                 </tbody>
+                {{-- <a href="{{ route('experience.update.acc', $experience->id )}}" class="btn btn-success btn-sm" name="isAcc">Terima</a>
+                <a href="{{ route('experience.update.reject', $experience->id )}}" onclick="return confirm('Apakah Anda yakin ingin?')" name="isReject" class="btn btn-danger btn-sm">Tolak</a> --}}
             </table>
             </div>
         </div>

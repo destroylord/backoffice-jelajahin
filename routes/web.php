@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController, ExperienceController};
+use App\Models\Experience;
 // MenuTypicalController
 
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
                 ->name('experience.update.acc');
     Route::get('/experience/reject/{id}', [ExperienceController::class, 'updateStatusReject'])
                 ->name('experience.update.reject');
+    Route::get('/experience/review/{id}', [ExperienceController::class, 'review'])
+                ->name('experience.review');
 });
 
 require __DIR__.'/auth.php';

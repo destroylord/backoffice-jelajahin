@@ -43,4 +43,10 @@ class ExperienceController extends Controller
         return back();
 
     }
+
+    public function review($id)
+    {
+        $experience = Experience::find($id);
+        return view('experience.review', compact('experience'));
+    }
 }
