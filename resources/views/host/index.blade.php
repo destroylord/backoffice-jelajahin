@@ -27,34 +27,33 @@
                 </thead>
                 <tbody>
                     @foreach ($hosts as $host)
-                    <a href="javascript:void(0)">
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$host->full_name}}</td>
-                            <td>{{$host->email}}</td>
-                            <td>{{$host->phone}}</td>
-                            <td>
-                                <button class="btn btn-sm btn-{{ ($host->status == 1) ? 'success' : (($host->status == 2 ) ? 'warning' : 'danger') }} '">{{ ($host->status == 1) ? 'accepted' : (($host->status == 2 ) ? 'Pending' : 'reject') }} </button>
-                            </td>
-                            <td>
-                                @php
-                                    if ($host->status == 1) {
-                                        echo "<i class='fas fa-solid fa-check'></i>";
-
-                                    }elseif ($host->status == 2) { @endphp
-
-                                            <a href="{{ route('host.update.acc', $host->id )}}" class="btn btn-success btn-sm" name="isAcc">Terima</a>
-                                            <a href="{{ route('host.update.reject', $host->id )}}" onclick="return confirm('Apakah Anda yakin ingin?')" name="isReject" class="btn btn-danger btn-sm">Tolak</a>
-
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$host->full_name}}</td>
+                                <td>{{$host->email}}</td>
+                                <td>{{$host->phone}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-{{ ($host->status == 1) ? 'success' : (($host->status == 2 ) ? 'warning' : 'danger') }} '">{{ ($host->status == 1) ? 'Accepted' : (($host->status == 2 ) ? 'Pending' : 'Reject') }} </button>
+                                </td>
+                                <td>
                                     @php
-                                    }else{
-                                        echo "<i class='fas fa-times'></i>";
-                                    }
-                                @endphp
+                                        if ($host->status == 1) {
+                                            echo "<i class='fas fa-solid fa-check'></i>";
 
-                            </td>
+                                        }elseif ($host->status == 2) { @endphp
+
+                                            <a href="{{ route('host.review', $host->id)}}" class="btn btn-info"><i class="fa fas fa-eye"></i> Review</a>
+
+
+                                        @php
+                                        }else{
+                                            echo "<i class='fas fa-times'></i>";
+                                        }
+                                    @endphp
+
+                                </td>
+                            </a>
                         </tr>
-                        </a>
                     @endforeach
                 </tbody>
             </table>

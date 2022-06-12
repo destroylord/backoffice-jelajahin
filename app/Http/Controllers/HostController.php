@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Host;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HostController extends Controller
@@ -19,11 +20,13 @@ class HostController extends Controller
         $findHost = Host::find($id);
 
         $findHost->update([
-            'status' => 1
+            'status' => 1,
+            'verified_date' => Carbon::now()
         ]);
 
 
-        return back();
+        return redirect()
+                ->route('host.index');
 
     }
 
@@ -36,7 +39,15 @@ class HostController extends Controller
         ]);
 
 
-        return back();
+        return redirect()
+                ->route('host.index');
 
+    }
+
+
+    public function review($id)
+    {
+        $host = Host::find($id);
+        return view('host.review', compact('host'));
     }
 }

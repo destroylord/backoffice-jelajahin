@@ -57,6 +57,8 @@ Route::group(['middleware' => 'auth'], function () {
                 ->name('host.update.acc');
     Route::get('/host/reject/{id}', [HostController::class, 'updateStatusReject'])
                 ->name('host.update.reject');
+    Route::get('/host/review/{id}', [HostController::class, 'review'])
+                ->name('host.review');
 
     // Experiences
     Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.index');
