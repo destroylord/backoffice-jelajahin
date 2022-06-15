@@ -2,13 +2,15 @@
 
 
 use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController, ExperienceController};
-use App\Models\Experience;
+use App\Notifications\NewMessage;
+use Illuminate\Notifications\Notification;
 // MenuTypicalController
 
 use Illuminate\Support\Facades\Route;
 
 
-// Route::redirect('/', 'login');
+Route::redirect('/', 'login');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
@@ -72,5 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
                 ->name('experience.review');
 });
 
+
+// Route::view('/mail-test', 'vendor.mail.approved.host');
 require __DIR__.'/auth.php';
 
