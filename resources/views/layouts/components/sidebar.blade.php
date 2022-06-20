@@ -13,7 +13,7 @@
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-      Features
+      General
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('restaurant.index')}}">
@@ -52,14 +52,18 @@
           <i class="fas fa-gem"></i>
           <span>Hidden Gem</span></a>
       </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Host
+      </div>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('host.index')}}">
-          <i class="fas fa-gem"></i>
+            <i class="fas fa-file-alt"></i>
           <span>Approval Host </span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('experience.index')}}">
-          <i class="fas fa-gem"></i>
+            <i class="fas fa-file-alt"></i>
           <span>Approval Experience </span></a>
       </li>
     <hr class="sidebar-divider">

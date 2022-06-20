@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
+use App\Models\Host;
+use App\Models\Hotel;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,6 +18,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('welcome');
+        $countRestaurant = Restaurant::count();
+        $countHotel = Hotel::count();
+        $countPendingHost = Host::where('status', '2')->count();
+        $countPendingExperience = Experience::where('accepted', '2')->count();
+
+        return view('welcome', compact('countRestaurant', 'countHotel', 'countPendingHost', 'countPendingExperience'));
     }
 }
