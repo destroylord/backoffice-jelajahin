@@ -20,12 +20,10 @@ class HostController extends Controller
     {
         $findHost = Host::find($id);
 
-        // dd($findHost->email);
         $findHost->update([
             'status' => 1, // 1
             'verified_date' => Carbon::now()
         ]);
-
 
         Mail::to($findHost->email)->send(new HostApprovedMail($findHost));
 
