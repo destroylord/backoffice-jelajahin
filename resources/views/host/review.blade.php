@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label>Photo</label>
                         <br>
-                        <img src="{{ ($host->image != null) ? asset($host->image) : asset('/img/no_image.jpg    ')}}" alt="Avatar.jgp" width="150" height="150">
+                        <img src="https://api.jelajahin.com/{{ ($host->image != null) ? asset($host->image) : asset('/img/no_image.jpg    ')}}" alt="Avatar.jgp" width="150" height="150">
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
