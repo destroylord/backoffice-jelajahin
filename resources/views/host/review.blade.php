@@ -12,7 +12,10 @@
                     <div class="form-group">
                         <label>Photo</label>
                         <br>
-                        <img src="https://api.jelajahin.com/{{ ($host->image != null) ? asset($host->image) : asset('/img/no_image.jpg    ')}}" alt="Avatar.jgp" width="150" height="150">
+                        @php
+                            $uri = "https://api.jelajahin.com/";
+                        @endphp
+                        <img src="{{ ($uri.$host->image != null) ? $uri.$host->image : asset('/img/no_image.jpg ')}}" alt="Avatar.jgp" width="150" height="150">
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
