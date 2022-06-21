@@ -33,7 +33,7 @@ return new class extends Migration
 
             $table->foreign('province_id')
                         ->references('id')
-                        ->on('provincies')
+                        ->on('provinces')
                         ->cascadeOnUpdate()
                         ->cascadeOnDelete();
             $table->foreign('city_id')

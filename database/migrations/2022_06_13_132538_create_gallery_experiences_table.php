@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('gallery_experiences', function (Blueprint $table) {
             $table->increments('id');
             $table->text('image_url');
-            $table->string('uuid_experience', 35);
+            $table->string('uuid_experience', 36);
             $table->timestamps();
         });
     }

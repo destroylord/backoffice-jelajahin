@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('website', 50);
             $table->string('email')->nullable();
 
-            // Foreign key provincies and city
+            // Foreign key provinces and city
             $table->unsignedInteger('province_id')->nullable();
             $table->unsignedInteger('city_id')->nullable();
 
@@ -53,7 +53,7 @@ return new class extends Migration
 
             $table->foreign('province_id')
                     ->references('id')
-                    ->on('provincies')
+                    ->on('provinces')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 

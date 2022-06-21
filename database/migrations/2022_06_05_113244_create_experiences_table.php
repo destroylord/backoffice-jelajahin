@@ -22,6 +22,8 @@ return new class extends Migration
             $table->text('address');
             $table->integer('price');
             $table->integer('duration');
+            $table->text('other_experiences');
+            $table->text('facilities');
 
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');

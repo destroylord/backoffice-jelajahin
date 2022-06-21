@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('action_value');
             $table->text('action_param');
             $table->string('image', 100);
-            // Foreign key provincies and city
+            // Foreign key provinces and city
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
 
@@ -32,7 +32,7 @@ return new class extends Migration
 
             $table->foreign('province_id')
                     ->references('id')
-                    ->on('provincies')
+                    ->on('provinces')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 

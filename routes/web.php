@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController, ExperienceController};
+use App\Http\Controllers\{DashboardController, HotelController, MenuRestaurantController, ProfileController, RestaurantController, TourController, HiddenGemController, ActivityController, HostController, ExperienceController, TransactionConfirmationController};
 use App\Notifications\NewMessage;
 use Illuminate\Notifications\Notification;
 // MenuTypicalController
@@ -72,6 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
                 ->name('experience.update.reject');
     Route::get('/experience/review/{id}', [ExperienceController::class, 'review'])
                 ->name('experience.review');
+
+    Route::get('/transaction-confirmation', [TransactionConfirmationController::class, 'index'])->name('transaction.confirmation.index');
 });
 
 

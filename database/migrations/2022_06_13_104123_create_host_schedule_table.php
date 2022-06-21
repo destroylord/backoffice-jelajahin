@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('uuid_host');
             $table->string('uuid_user');
             $table->dateTime('start_date');
-            $table->dateTime('end_time');
+            $table->dateTime('end_date');
             $table->tinyInteger('tourist_amount');
             $table->tinyInteger('verification_status');
             $table->timestamps();

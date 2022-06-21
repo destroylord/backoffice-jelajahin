@@ -66,6 +66,11 @@
             <i class="fas fa-file-alt"></i>
           <span>Approval Experience </span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('transaction.confirmation.index')}}">
+            <i class="fas fa-dollar-sign"></i>
+          <span>Transaction Confirmation </span></a>
+      </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
 </ul>

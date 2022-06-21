@@ -22,7 +22,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('ticket_price');
-            // Foreign key provincies and city
+            // Foreign key provinces and city
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
 
@@ -36,7 +36,7 @@ return new class extends Migration
 
             $table->foreign('province_id')
                     ->references('id')
-                    ->on('provincies')
+                    ->on('provinces')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 

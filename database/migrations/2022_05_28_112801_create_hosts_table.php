@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('fire_token', 191)->nullable();
             $table->foreign('province_id')
             ->references('id')
-            ->on('provincies')
+            ->on('provinces')
             ->cascadeOnUpdate()
             ->cascadeOnDelete();
 

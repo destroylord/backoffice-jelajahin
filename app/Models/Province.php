@@ -11,5 +11,5 @@ class Province extends Model
 
     protected $guarded = [];
 
-    protected $table = 'provincies';
+    protected $table = 'provinces';
 }

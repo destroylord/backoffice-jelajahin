@@ -37,7 +37,7 @@ return new class extends Migration
             $table->float('rating_food',8,2)->nullable();
             $table->float('rating_clean',8,2)->nullable();
             $table->integer('rating_count')->nullable();
-            // Foreign key provincies and city
+            // Foreign key provinces and city
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
 
@@ -54,7 +54,7 @@ return new class extends Migration
 
             $table->foreign('province_id')
                     ->references('id')
-                    ->on('provincies')
+                    ->on('provinces')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
 
