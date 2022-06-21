@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->text('address');
+            $table->integer('point')->nullable();
+            $table->integer('balance')->nullable();
             $table->integer('status');
 
             $table->unsignedInteger('province_id');
