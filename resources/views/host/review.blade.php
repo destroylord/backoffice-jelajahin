@@ -13,7 +13,7 @@
                         <label>Photo</label>
                         <br>
                         @php
-                            $uri = "https://api.jelajahin.com/";
+                            $uri = "https://api.jelajahin.com";
                         @endphp
                         <img src="{{ ($uri.$host->image != null) ? $uri.$host->image : asset('/img/no_image.jpg ')}}" alt="Avatar.jgp" width="150" height="150">
                     </div>
