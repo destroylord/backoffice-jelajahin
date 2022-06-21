@@ -67,7 +67,7 @@
         var marker  = new L.marker(curLocation,{
             draggable: 'true'
         });
-        console.log(marker);
+
 
         marker.on('dragend', function(event){
             var position = marker.getLatLng();

@@ -52,17 +52,24 @@ class RestaurantController extends Controller
         $file = $request->file('image');
 
         $attr = $request->all();
-        $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
-        $path = $file->storeAs('restaurant', $fileName);
+
+        if (request()->hasFile('image')) {
+
+            $fileName = date('YmdHi').".".$file->getClientOriginalExtension();
+            $path = $file->storeAs('restaurant', $fileName);
+
+        }
 
         $attr['image'] = $path;
+        $attr['latitude'] = $request->latitude;
+        $attr['longitude'] = $request->longitude;
 
         dd($attr);
+        // Restaurant::create($attr);
 
-        Restaurant::create($attr);
         return back();
-
     }
+
 
     /**
      * Display the specified resource.

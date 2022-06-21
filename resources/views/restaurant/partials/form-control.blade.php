@@ -198,9 +198,9 @@
                 @enderror
             </div>
             <div class="col-lg-6">
-                <label>Longtitude</label>
-                <input type="number" class="form-control @error('longtitude') is-invalid @enderror" name="longtitude" value="{{$restaurant->longtitude ?? old('longtitude')}}" placeholder="Longtitude" id="longtitude" readonly>
-                @error('longtitude')
+                <label>Longitude</label>
+                <input type="number" class="form-control @error('longitude') is-invalid @enderror" name="longitude" value="{{$restaurant->longitude ?? old('longitude')}}" placeholder="Longitude" id="longtitude" readonly>
+                @error('longitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

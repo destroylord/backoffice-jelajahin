@@ -10,7 +10,9 @@ class Restaurant extends Model
 {
     use HasFactory, HasUuid;
 
+    protected $table = 'restaurants';
     protected $guarded = [];
+
 
 
     protected $primaryKey = 'uuid_restaurant';

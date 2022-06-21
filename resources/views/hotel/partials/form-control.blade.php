@@ -32,7 +32,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Longtitude</label>
-                <input type="number" class="form-control" name="longtitude" value="{{$hotel->longtitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
+                <input type="number" class="form-control" name="longitude" value="{{$hotel->longtitude ?? ''}}" placeholder="Longtitude" id="longtitude" readonly>
                 @error('longtitude')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
