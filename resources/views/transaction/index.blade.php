@@ -20,6 +20,7 @@
                     <th>No.</th>
                     <th>Images</th>
                     <th>Jumlah turis</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -28,24 +29,38 @@
                     <th>No.</th>
                     <th>Images</th>
                     <th>Jumlah turis</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
-                    {{-- @foreach ($tours as $tour)
+                    @foreach ($transactionConfirms as $tf)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$tour->name}}</td>
-                            <td>{{$tour->description}}</td>
-                            <td>{{$tour->ticket_price_weekday}}</td>
-                            <td>{{$tour->ticket_price_weekend}}</td>
+                            <td><img src="https://api.jelajahin.com/{{$tf->image}}" width="200" alt=""></td>
+                            <td>{{$tf->tourist_amount}}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="far fas fa-info-circle"></i></a>
-                                <a href="{{route('tour.edit', $tour->uuid_tour)}}" class="btn btn-warning btn-sm"><i class="far fas fa-edit"></i></a>
-                                <a href="/tour/{{$tour->uuid_tour}}/delete" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="far fas fa-trash"></i></a>
+                                <button class="btn btn-sm btn-{{ ($tf->status == 1) ? 'success' : (($tf->status == 2 ) ? 'warning' : 'danger') }} '">{{ ($tf->status == 1) ? 'Accepted' : (($tf->status == 2 ) ? 'Pending' : 'Reject') }} </button>
+                            </td>
+                            <td>
+
+                                    @php
+                                        if ($tf->status == 1) {
+                                            echo "<i class='fas fa-solid fa-check'></i>";
+
+                                        }elseif ($tf->status == 2) { @endphp
+
+                                            <a href="{{ route('tf.review', $tf->id)}}" class="btn btn-info"><i class="fa fas fa-eye"></i> Review</a>
+
+
+                                        @php
+                                        }else{
+                                            echo "<i class='fas fa-times'></i>";
+                                        }
+                                    @endphp
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
             </div>
